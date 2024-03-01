@@ -51,6 +51,7 @@ export type Money = {
 };
 
 export type Page = {
+  metafield: any;
   id: string;
   title: string;
   handle: string;
@@ -59,6 +60,7 @@ export type Page = {
   seo?: SEO;
   createdAt: string;
   updatedAt: string;
+  heroImage: any;
 };
 
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {

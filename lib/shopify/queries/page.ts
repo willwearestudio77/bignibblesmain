@@ -8,11 +8,31 @@ const pageFragment = /* GraphQL */ `
       handle
       body
       bodySummary
+
       seo {
         ...seo
       }
       createdAt
       updatedAt
+      heroText: metafield(namespace: "custom", key: "hero_text") {
+        id
+        namespace
+        key
+        value
+      }
+      heroImage: metafield(namespace: "custom", key: "hero_image") {
+        reference {
+          ... on MediaImage {
+            id
+            image {
+              originalSrc
+              id
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
   ${seoFragment}
