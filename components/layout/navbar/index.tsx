@@ -2,7 +2,6 @@ import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
@@ -24,7 +23,33 @@ export default async function Navbar() {
               {SITE_NAME}
             </div>
           </Link>
-          {menu.length ? (
+          <ul className="hidden gap-6 text-sm md:flex md:items-center">
+            <li>
+              <Link
+                href={'/about'}
+                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={'/contact'}
+                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={'/search'}
+                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                Shop
+              </Link>
+            </li>
+          </ul>
+          {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
               {menu.map((item: Menu) => (
                 <li key={item.title}>
@@ -37,7 +62,7 @@ export default async function Navbar() {
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : null} */}
         </div>
         <div className="hidden justify-center md:flex md:w-1/3">
           <Search />
