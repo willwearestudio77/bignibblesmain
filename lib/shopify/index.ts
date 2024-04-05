@@ -356,9 +356,10 @@ export async function getMenu(handle: string): Promise<Menu[]> {
 }
 
 export async function getHome() {
-  const res = await shopifyFetch({
-    query: getHomeQuery
-  });
+  const res: { body: { data: { metaobjects: { edges: { node: { fields: any } }[] } } } } =
+    await shopifyFetch({
+      query: getHomeQuery
+    });
 
   const fieldsArray = res.body.data.metaobjects.edges.map((edge: any) => edge.node.fields).flat();
 
