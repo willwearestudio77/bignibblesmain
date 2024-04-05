@@ -159,11 +159,11 @@ export default async function HomePage() {
                     alt="hand icon"
                     src={firstProductImage?.url ?? ''}
                   ></Image>
-                  <h5 className="pb-2">{firstProduct.title}</h5>
-                  <p className="pb-4">£{firstProduct.priceRange.maxVariantPrice.amount}0</p>
+                  <h5 className="pb-2">{firstProduct?.title ?? ''}</h5>
+                  <p className="pb-4">£{firstProduct?.priceRange.maxVariantPrice.amount}0</p>
                   <AddToCart
-                    variants={firstProduct.variants}
-                    availableForSale={firstProduct.availableForSale}
+                    variants={firstProduct?.variants ?? []}
+                    availableForSale={firstProduct?.availableForSale ?? false}
                   />
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default async function HomePage() {
                 <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
                 <p>{data.product_text_description}</p>
                 <button>
-                  <Link href={`/product/${firstProduct.handle}`}>Read More</Link>
+                  <Link href={`/product/${firstProduct?.handle ?? ''}`}>Read More</Link>
                 </button>
               </div>
             </div>
