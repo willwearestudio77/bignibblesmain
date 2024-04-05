@@ -1,33 +1,29 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
+import Image from 'next/image';
 import Link from 'next/link';
+import logo from 'public/bn-logo.png';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-import Search from './search';
-const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
   const menu = await getMenu('main-menu');
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
-      <div className="block flex-none md:hidden">
+    <nav className="relative flex items-center justify-between bg-accent p-4 lg:px-6">
+      <div className="block flex-none md:hidden ">
         <MobileMenu menu={menu} />
       </div>
       <div className="flex w-full items-center">
-        <div className="flex w-full md:w-1/3">
+        <div className="flex w-full justify-between md:w-full">
           <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-            <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div>
+            <Image src={logo} alt="logo" width={200} height={50} />
           </Link>
-          <ul className="hidden gap-6 text-sm md:flex md:items-center">
+          <ul className=" hidden gap-6  text-sm md:flex  md:items-center">
             <li>
               <Link
                 href={'/about'}
-                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                className="font-bold text-primary underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
               >
                 About
               </Link>
@@ -35,7 +31,7 @@ export default async function Navbar() {
             <li>
               <Link
                 href={'/contact'}
-                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                className="font-bold text-primary underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
               >
                 Contact
               </Link>
@@ -43,7 +39,7 @@ export default async function Navbar() {
             <li>
               <Link
                 href={'/search'}
-                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                className="font-bold text-primary underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
               >
                 Shop
               </Link>
@@ -64,10 +60,10 @@ export default async function Navbar() {
             </ul>
           ) : null} */}
         </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
+        {/* <div className="hidden justify-center md:flex md:w-1/3">
           <Search />
-        </div>
-        <div className="flex justify-end md:w-1/3">
+        </div> */}
+        <div className="flex justify-end md:ml-6">
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>

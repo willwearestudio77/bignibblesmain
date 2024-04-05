@@ -1,10 +1,17 @@
-import { Carousel } from 'components/carousel';
-
+import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
+import PhotoCarousel from 'components/photo-carousel';
+import { getCollectionProducts, getHome } from 'lib/shopify';
+import Image from 'next/image';
+import Link from 'next/link';
+import chilli from 'public/chilli.png';
+import dscard from 'public/ds.png';
+import hand from 'public/hand.png';
+import jakeySweetPotatoes from 'public/jake-sweet-potatoes-big-nibbles-partner.png';
+import jakeyLimeEyes from 'public/jake-top.png';
 import { Suspense } from 'react';
-
 export const runtime = 'edge';
-
+const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -13,11 +20,211 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const data = await getHome();
+  const instagramData = await fetch(url);
+  const instagram = await instagramData.json();
+  const instagramArray = await instagram.data.slice(0, 10);
+  const products = await getCollectionProducts({
+    collection: 'frontpage',
+    reverse: true,
+    sortKey: 'CREATED_AT'
+  });
+  const firstProduct = products[0];
+  const firstProductImage = firstProduct?.images[0];
+
   return (
     <>
       <Suspense>
-        <Carousel />
         <Suspense>
+          <div className="hero-section relative min-h-[75vh] bg-primary    pb-20 pt-20">
+            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center  pl-5 pt-5 leading-8 md:w-3/4 md:pl-10">
+              <div className=" relative items-center text-wrap align-middle	 font-sans text-7xl font-semibold	 uppercase leading-normal text-accent">
+                {data.first_line}
+                <div className="relative inline-block px-5 		 align-middle ">
+                  <Image
+                    className="relative z-10   "
+                    height={69}
+                    width={48}
+                    alt="hand icon"
+                    src={hand}
+                  ></Image>
+                  <svg
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2	 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="63"
+                    height="63"
+                    viewBox="0 0 63 63"
+                    fill="none"
+                  >
+                    <circle cx="31.5" cy="31.5" r="31.5" fill="#3C3C3C" />
+                  </svg>
+                </div>
+                {data.second_line}
+                <div className="relative inline-block px-5 py-10  align-middle">
+                  <Image
+                    className="relative top-1/2 z-10 "
+                    height={36}
+                    width={36}
+                    alt="chilli icon"
+                    src={chilli}
+                  ></Image>
+                  <svg
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="63"
+                    height="63"
+                    viewBox="0 0 63 63"
+                    fill="none"
+                  >
+                    <circle cx="31.5" cy="31.5" r="31.5" fill="#3C3C3C" />
+                  </svg>
+                </div>
+                {data.third_line}
+                <div className="relative inline-block  px-5	 align-middle  ">
+                  <Image
+                    className="relative top-1/2  z-10 "
+                    height={44}
+                    width={40}
+                    alt="nintendo ds card"
+                    src={dscard}
+                  ></Image>
+                  <svg
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 "
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="63"
+                    height="63"
+                    viewBox="0 0 63 63"
+                    fill="none"
+                  >
+                    <circle cx="31.5" cy="31.5" r="31.5" fill="#3C3C3C" />
+                  </svg>
+                </div>
+                {data.fourth_line}
+                <button className="m-auto ml-4 inline-block rounded-full border-2 border-accent p-4 align-middle  	">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="15"
+                    viewBox="0 0 48 15"
+                    fill="none"
+                  >
+                    <path
+                      d="M47.7071 8.20711C48.0976 7.81658 48.0976 7.18342 47.7071 6.79289L41.3431 0.428932C40.9526 0.0384078 40.3195 0.0384078 39.9289 0.428932C39.5384 0.819457 39.5384 1.45262 39.9289 1.84315L45.5858 7.5L39.9289 13.1569C39.5384 13.5474 39.5384 14.1805 39.9289 14.5711C40.3195 14.9616 40.9526 14.9616 41.3431 14.5711L47.7071 8.20711ZM0 8.5H47V6.5H0V8.5Z"
+                      fill="#EFAF14"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="heroimage absolute bottom-0 right-0 w-5/12 ">
+              <Image
+                className="relative z-10 self-end 	 "
+                width={1000}
+                height={1000}
+                alt="jake with limes for eyes"
+                src={jakeyLimeEyes}
+              />
+            </div>
+            <svg
+              className="absolute bottom-0 right-0 z-0 w-[550px] blur-2xl "
+              viewBox="0 0 466 503"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle opacity="0.8" cx="252.146" cy="251.744" r="251.256" fill="#EFAF14" />
+            </svg>
+            <div className="wave absolute bottom-0 left-0 z-10 w-full rotate-180 overflow-hidden ">
+              <svg
+                className="relative block h-[102px] w-full"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                  className="fill-accent80"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div className="product-section relative bg-accent80 pb-20">
+            <div className="m-auto flex max-w-screen-xl py-12">
+              <div className="product w-1/2">
+                <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-12 ">
+                  <Image
+                    className="relative z-10 pb-4"
+                    width={firstProductImage?.width ?? 0}
+                    height={firstProductImage?.height ?? 0}
+                    alt="hand icon"
+                    src={firstProductImage?.url ?? ''}
+                  ></Image>
+                  <h5 className="pb-2">{firstProduct.title}</h5>
+                  <p className="pb-4">£{firstProduct.priceRange.maxVariantPrice.amount}0</p>
+                  <AddToCart
+                    variants={firstProduct.variants}
+                    availableForSale={firstProduct.availableForSale}
+                  />
+                </div>
+              </div>
+              <div className="product-desctiption w-1/2 p-20">
+                <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
+                <p>{data.product_text_description}</p>
+                <button>
+                  <Link href={`/product/${firstProduct.handle}`}>Read More</Link>
+                </button>
+              </div>
+            </div>
+            <div className="wave absolute bottom-0 left-0 w-full rotate-180 overflow-hidden  ">
+              <svg
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                  className="fill-primary"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div className="partner-up-section relative bg-primary">
+            <div className="content-wrapper relative flex w-full">
+              <div className="image-container relative w-1/3 ">
+                <Image
+                  className=" absolute bottom-0 "
+                  width={400}
+                  height={400}
+                  alt="jake with sweet potatoes"
+                  src={jakeySweetPotatoes}
+                />
+              </div>
+              <div className="m-auto w-2/3  ">
+                <div className="text-container m-auto	 flex flex-col gap-y-5 p-20 font-sans font-semibold uppercase text-accent ">
+                  <h2 className="text-stroke text-7xl text-white	">the uk's most</h2>
+                  <div className="flex flex-row text-8xl">
+                    <div>un</div>
+                    <div>hinged</div>
+                  </div>
+                  <h2 className="text-7xl	">food</h2>
+                  <h2 className="text-7xl	">creator</h2>
+                  <p className="font-light normal-case text-white	">
+                    With over 10 years of experience in the video industry, I've dedicated myself to
+                    crafting high-quality, well-produced content that's as delightful to watch as it
+                    is delicious to taste.
+                  </p>
+                  <button className="inline-block rounded-full border-2 border-accent p-4 uppercase">
+                    <Link href="/contact">get in touch</Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="instagram-section relative bg-accent80">
+            <PhotoCarousel instagramArray={instagramArray} />
+          </div>
           <Footer />
         </Suspense>
       </Suspense>

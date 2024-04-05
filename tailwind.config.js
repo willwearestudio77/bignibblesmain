@@ -5,8 +5,14 @@ module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        primary: '#231F20',
+        accent: '#EFAF14',
+        accent80: '#F2BF43',
+        accent40: '#F9DFA1'
+      },
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        sans: ['Montserrat']
       },
       keyframes: {
         fadeIn: {
@@ -34,6 +40,7 @@ module.exports = {
     hoverOnlyWhenSupported: true
   },
   plugins: [
+    require('daisyui'),
     require('@tailwindcss/container-queries'),
     require('@tailwindcss/typography'),
     plugin(({ matchUtilities, theme }) => {

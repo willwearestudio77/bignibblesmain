@@ -6,11 +6,17 @@ module.exports = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    domains: ['cdn.shopify.com', 'scontent.cdninstagram.com'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.shopify.com',
         pathname: '/s/files/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent.cdninstagram.com',
+        pathname: '/v/**'
       }
     ]
   },

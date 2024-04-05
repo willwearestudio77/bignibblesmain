@@ -16,6 +16,7 @@ import {
   getCollectionQuery,
   getCollectionsQuery
 } from './queries/collection';
+import { getHomeQuery } from './queries/home';
 import { getMenuQuery } from './queries/menu';
 import { getPageQuery, getPagesQuery } from './queries/page';
 import {
@@ -59,7 +60,7 @@ const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 type ExtractVariables<T> = T extends { variables: object } ? T['variables'] : never;
 
 export async function shopifyFetch<T>({
-  cache = 'force-cache',
+  cache = 'no-store',
   headers,
   query,
   tags,
@@ -352,6 +353,24 @@ export async function getMenu(handle: string): Promise<Menu[]> {
       path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
     })) || []
   );
+}
+
+export async function getHome() {
+  const res = await shopifyFetch({
+    query: getHomeQuery
+  });
+
+  const fieldsArray = res.body.data.metaobjects.edges.map((edge: any) => edge.node.fields).flat();
+
+  const fieldsObject = fieldsArray.reduce((acc: any, field: any) => {
+    acc[field.key] = field.value;
+    if (field.reference) {
+      acc[field.key + '_reference'] = field.reference;
+    }
+    return acc;
+  }, {});
+  console.log(fieldsObject);
+  return fieldsObject;
 }
 
 export async function getPage(handle: string): Promise<Page> {
