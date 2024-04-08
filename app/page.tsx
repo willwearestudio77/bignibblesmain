@@ -1,13 +1,14 @@
 import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
 import PhotoCarousel from 'components/photo-carousel';
+import PartnerUp from 'components/sections/partner-up';
 import { getCollectionProducts, getHome } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import chilli from 'public/chilli.png';
 import dscard from 'public/ds.png';
 import hand from 'public/hand.png';
-import jakeySweetPotatoes from 'public/jake-sweet-potatoes-big-nibbles-partner.png';
+
 import jakeyLimeEyes from 'public/jake-top.png';
 import { Suspense } from 'react';
 export const runtime = 'edge';
@@ -36,10 +37,10 @@ export default async function HomePage() {
     <>
       <Suspense>
         <Suspense>
-          <div className="hero-section relative min-h-[75vh] bg-primary    pb-20 pt-20">
-            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center  pl-5 pt-5 leading-8 md:w-3/4 md:pl-10">
-              <div className=" relative items-center text-wrap align-middle	 font-sans text-7xl font-semibold	 uppercase leading-normal text-accent">
-                {data.first_line}
+          <div className="hero-section relative min-h-[75vh] bg-primary pb-20 pt-20">
+            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10  leading-8 md:w-3/4 md:pl-10 md:pl-5">
+              <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	 leading-normal text-accent md:text-7xl">
+                <span className="text-stroke-hero">{data.first_line}</span>
                 <div className="relative inline-block px-5 		 align-middle ">
                   <Image
                     className="relative z-10   "
@@ -79,7 +80,7 @@ export default async function HomePage() {
                     <circle cx="31.5" cy="31.5" r="31.5" fill="#3C3C3C" />
                   </svg>
                 </div>
-                {data.third_line}
+                <span className="text-stroke-hero">{data.third_line}</span>
                 <div className="relative inline-block  px-5	 align-middle  ">
                   <Image
                     className="relative top-1/2  z-10 "
@@ -116,7 +117,7 @@ export default async function HomePage() {
                 </button>
               </div>
             </div>
-            <div className="heroimage absolute bottom-0 right-0 w-5/12 ">
+            <div className="heroimage absolute bottom-0 right-0 w-2/3 md:w-5/12 ">
               <Image
                 className="relative z-10 self-end 	 "
                 width={1000}
@@ -126,15 +127,15 @@ export default async function HomePage() {
               />
             </div>
             <svg
-              className="absolute bottom-0 right-0 z-0 w-[550px] blur-2xl "
+              className="absolute bottom-20 right-0 z-0 w-[150px] blur-2xl "
               viewBox="0 0 466 503"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle opacity="0.8" cx="252.146" cy="251.744" r="251.256" fill="#EFAF14" />
             </svg>
-            <div className="wave absolute bottom-0 left-0 z-10 w-full rotate-180 overflow-hidden ">
-              <svg
+            <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
+              {/* <svg
                 className="relative block h-[102px] w-full"
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,12 +146,24 @@ export default async function HomePage() {
                   d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                   className="fill-accent80"
                 ></path>
+              </svg> */}
+              <svg
+                className="relative block h-[50px] w-full md:h-[116px]"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 1440 116"
+                fill="none"
+              >
+                <path
+                  d="M0 83L614.386 14.0747C891.452 -17.0082 1171.92 6.40659 1440 83V83V115.5H0V83Z"
+                  className="fill-accent80"
+                />
               </svg>
             </div>
           </div>
           <div className="product-section relative bg-accent80 pb-20">
-            <div className="m-auto flex max-w-screen-xl py-12">
-              <div className="product w-1/2">
+            <div className="m-auto flex max-w-screen-xl flex-col py-12 md:flex-row">
+              <div className="product w-full md:w-1/2">
                 <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-12 ">
                   <Image
                     className="relative z-10 pb-4"
@@ -167,7 +180,7 @@ export default async function HomePage() {
                   />
                 </div>
               </div>
-              <div className="product-desctiption w-1/2 p-20">
+              <div className="product-desctiption w-full p-8 md:w-1/2 md:p-20">
                 <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
                 <p>{data.product_text_description}</p>
                 <button>
@@ -175,7 +188,7 @@ export default async function HomePage() {
                 </button>
               </div>
             </div>
-            <div className="wave absolute bottom-0 left-0 w-full rotate-180 overflow-hidden  ">
+            <div className="wave absolute -bottom-1 left-0 w-full rotate-180 overflow-hidden  ">
               <svg
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -189,41 +202,18 @@ export default async function HomePage() {
               </svg>
             </div>
           </div>
-          <div className="partner-up-section relative bg-primary">
-            <div className="content-wrapper relative flex w-full">
-              <div className="image-container relative w-1/3 ">
-                <Image
-                  className=" absolute bottom-0 "
-                  width={400}
-                  height={400}
-                  alt="jake with sweet potatoes"
-                  src={jakeySweetPotatoes}
-                />
-              </div>
-              <div className="m-auto w-2/3  ">
-                <div className="text-container m-auto	 flex flex-col gap-y-5 p-20 font-sans font-semibold uppercase text-accent ">
-                  <h2 className="text-stroke text-7xl text-white	">the uk's most</h2>
-                  <div className="flex flex-row text-8xl">
-                    <div>un</div>
-                    <div>hinged</div>
-                  </div>
-                  <h2 className="text-7xl	">food</h2>
-                  <h2 className="text-7xl	">creator</h2>
-                  <p className="font-light normal-case text-white	">
-                    With over 10 years of experience in the video industry, I've dedicated myself to
-                    crafting high-quality, well-produced content that's as delightful to watch as it
-                    is delicious to taste.
-                  </p>
-                  <button className="inline-block rounded-full border-2 border-accent p-4 uppercase">
-                    <Link href="/contact">get in touch</Link>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="instagram-section relative bg-accent80">
+          <PartnerUp data="some data" />
+          <div className="instagram-section relative bg-accent80 py-10">
+            <h2 className="py-10 text-center text-4xl font-bold uppercase">content</h2>
             <PhotoCarousel instagramArray={instagramArray} />
+            <div className="button-container flex justify-center">
+              <Link href="https://www.instagram.com/bignibblesfood/">
+                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
+                  follow me
+                </button>
+              </Link>
+            </div>
           </div>
           <Footer />
         </Suspense>
