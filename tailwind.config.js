@@ -12,7 +12,7 @@ module.exports = {
         accent40: '#F9DFA1'
       },
       fontFamily: {
-        sans: ['Montserrat']
+        sans: ['MontserratSemiBold', 'sans-serif']
       },
       keyframes: {
         fadeIn: {

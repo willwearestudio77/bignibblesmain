@@ -20,6 +20,9 @@ dependencies:
   '@mui/material':
     specifier: ^5.15.15
     version: 5.15.15(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
+  '@next/font':
+    specifier: ^14.2.3
+    version: 14.2.3(next@14.0.0)
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
@@ -504,6 +507,14 @@ packages:
     dependencies:
       glob: 10.3.10
     dev: true
+
+  /@next/font@14.2.3(next@14.0.0):
+    resolution: {integrity: sha512-u35UstQmvl3Yrvv2MOi6RcXMH3xDtmWTXcvkYcC/vCZHLqj/5JQ5UyFRf5saDWxFlZIkEh8HCzwNGoiHIr1/NQ==}
+    peerDependencies:
+      next: '*'
+    dependencies:
+      next: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+    dev: false
 
   /@next/swc-darwin-arm64@14.0.0:
     resolution: {integrity: sha512-HQKi159jCz4SRsPesVCiNN6tPSAFUkOuSkpJsqYTIlbHLKr1mD6be/J0TvWV6fwJekj81bZV9V/Tgx3C2HO9lA==}

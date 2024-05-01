@@ -121,7 +121,7 @@ export default async function HomePage() {
             </div>
             <div className="heroimage absolute bottom-0 right-0 w-2/3 md:w-5/12 ">
               <Image
-                className="relative z-10 self-end 	 "
+                className="relative z-10 self-end"
                 width={1000}
                 height={1000}
                 alt="jake with limes for eyes"

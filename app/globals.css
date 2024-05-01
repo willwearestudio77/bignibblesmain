@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'MontserratBold';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(./fonts/Montserrat-Bold.ttf) format('ttf');
+  }
+
+  @font-face {
+    font-family: 'MontserratRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/Montserrat-Medium.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: 'MontserratLight';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(./fonts/Montserrat-Light.ttf) format('ttf');
+  }
+  @font-face {
+    font-family: 'MontserratSemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(./fonts/Montserrat-SemiBold.ttf) format('ttf');
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
