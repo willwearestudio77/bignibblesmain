@@ -1,4 +1,5 @@
 import { AddToCart } from 'components/cart/add-to-cart';
+import { PhotoCarousel } from 'components/photo-carousel';
 import AboutSectionOne from 'components/sections/aboutsectionone';
 import CrazyText from 'components/sections/crazy-text';
 import { getPage } from 'lib/shopify';
@@ -146,8 +147,15 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'About' ? (
         <div className="bg-accent40 py-10">
-          <h3 className="mb-6 text-center text-4xl font-bold uppercase">content</h3>
-          {/* <PhotoCarousel instagramArray={instagramArray} /> */}
+          <h3 className="mb-6 text-center text-4xl font-bold uppercase text-primary">content</h3>
+          <PhotoCarousel />
+          <div className="button-container flex justify-center">
+            <Link href="https://www.instagram.com/bignibblesfood/">
+              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
+                follow me
+              </button>
+            </Link>
+          </div>
         </div>
       ) : null}
       {page.title === 'The Book' ? (

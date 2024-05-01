@@ -29,7 +29,7 @@ function PartnerUp({ data }: any) {
             <h2 className="text-stroke-hero text-3xl text-white md:text-7xl	">the uk&apos;s most</h2>
             <div className="flex flex-row text-4xl md:text-9xl">
               <div>un</div>
-              <div>hinged</div>
+              <div className="translate-y-3 rotate-12 md:translate-y-12	">hinged</div>
             </div>
             <h2 className="text-3xl text-white md:text-7xl">food</h2>
             <h2 className="text-3xl text-white md:text-7xl">creator</h2>

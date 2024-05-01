@@ -1,10 +1,10 @@
-'use client';
 import Image from 'next/image';
 
 export async function PhotoCarousel() {
   if (!process.env.NEXT_PUBLIC_INSTAGRAMKEY) {
     throw new Error('INSTAGRAMKEY is not defined');
   }
+
   const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_INSTAGRAMKEY}`;
   const instagramData = await fetch(url);
   const instagram = await instagramData.json();
@@ -14,7 +14,7 @@ export async function PhotoCarousel() {
       {instagramArray.map((item: any, index: number) => (
         <div className="cover carousel-item" key={index}>
           <Image
-            className="cover rounded-box"
+            className="cover h-auto w-auto rounded-box"
             alt={item.caption}
             width={200}
             height={200}
