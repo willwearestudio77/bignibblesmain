@@ -43,8 +43,8 @@ export default async function Footer() {
         />
       </div>
       <div className="mx-auto flex w-full  flex-col justify-between gap-6 bg-black px-10 py-12 text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
-        <div className="footer-container mx-auto flex w-full max-w-[1400px] justify-around px-10">
-          <div>
+        <div className="footer-container mx-auto flex w-full max-w-[1400px] flex-col justify-around md:flex-row md:px-10">
+          <div className="mb-4">
             <Link
               className="flex items-center gap-2 py-4 text-black md:pt-1 dark:text-white"
               href="/"
@@ -65,11 +65,11 @@ export default async function Footer() {
               </div>
             }
           >
-            <div className="browse-menu">
+            <div className="browse-menu mb-4">
               <h5 className="text-xl font-bold uppercase text-accent">browse</h5>
               <FooterMenu menu={browseMenu} />
             </div>
-            <div className="legal-menu">
+            <div className="legal-menu mb-4">
               <h5 className="text-xl font-bold uppercase text-accent">legal sh*t</h5>
               <FooterMenu menu={legalMenu} />
             </div>

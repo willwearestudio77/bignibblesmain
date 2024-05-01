@@ -7,7 +7,7 @@ function PartnerUp({ data }: any) {
   return (
     <div className="partner-up-section relative bg-primary">
       <div className="content-wrapper relative flex w-full flex-col md:flex-row">
-        <div className="image-container relative z-0 order-1 w-1/2 pb-20 md:-order-1 ">
+        <div className="image-container relative z-0 order-1 w-1/2 pb-40 md:-order-1 md:pb-20 ">
           <Image
             className=" absolute bottom-0 z-10"
             width={400}
@@ -16,7 +16,7 @@ function PartnerUp({ data }: any) {
             src={jakeySweetPotatoes}
           />
           <svg
-            className="absolute bottom-0 left-0 z-0 h-[400px] w-[400px] blur-2xl "
+            className="absolute bottom-0 left-0 z-0 blur-2xl md:h-[400px] md:w-[400px] "
             viewBox="0 0 466 503"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ function PartnerUp({ data }: any) {
               crafting high-quality, well-produced content that&apos;s as delightful to watch as it
               is delicious to taste.
             </p>
-            <button className="mt-4 inline-block w-1/5 rounded-full border-2 border-accent p-4 uppercase hover:bg-accent hover:text-primary">
+            <button className="mt-4 inline-block w-full rounded-full border-2 border-accent p-4 uppercase hover:bg-accent hover:text-primary md:w-1/5">
               <Link href="/contact">get in touch</Link>
             </button>
           </div>

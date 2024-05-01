@@ -7,9 +7,9 @@ import Link from 'next/link';
 import chilli from 'public/chilli.png';
 import dscard from 'public/ds.png';
 import hand from 'public/hand.png';
-
 import jakeyLimeEyes from 'public/jake-top.png';
 import { Suspense } from 'react';
+
 export const runtime = 'edge';
 // const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const metadata = {
@@ -31,19 +31,18 @@ export default async function HomePage() {
   });
   const firstProduct = products[0];
   const firstProductImage = firstProduct?.images[0];
-  console.log('products:', firstProduct);
 
   return (
     <>
       <Suspense>
         <Suspense>
-          <div className="hero-section relative min-h-[75vh] bg-primary pb-20 pt-20">
-            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10  leading-8 md:w-3/4 md:pl-10 md:pl-5">
-              <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	 leading-normal text-accent md:text-7xl">
+          <div className="hero-section relative bg-primary pb-60 md:min-h-[75vh] md:pb-20 md:pt-20">
+            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10 leading-8  md:w-3/4 md:pl-10 md:pl-5 lg:pl-20 lg:pt-20">
+              <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	leading-relaxed text-accent	 md:text-7xl md:leading-normal">
                 <span className="text-stroke-hero">{data.first_line}</span>
-                <div className="relative inline-block px-5 		 align-middle ">
+                <div className="relative inline-block px-5  align-middle ">
                   <Image
-                    className="relative z-10   "
+                    className="relative z-10 animate-bounce  "
                     height={69}
                     width={48}
                     alt="hand icon"
@@ -61,9 +60,9 @@ export default async function HomePage() {
                   </svg>
                 </div>
                 {data.second_line}
-                <div className="relative inline-block px-5 py-10  align-middle">
+                <div className="relative inline-block px-5 py-5 align-middle  md:py-10">
                   <Image
-                    className="relative top-1/2 z-10 "
+                    className="relative top-1/2 z-10 animate-bounce "
                     height={36}
                     width={36}
                     alt="chilli icon"
@@ -83,7 +82,7 @@ export default async function HomePage() {
                 <span className="text-stroke-hero">{data.third_line}</span>
                 <div className="relative inline-block  px-5	 align-middle  ">
                   <Image
-                    className="relative top-1/2  z-10 "
+                    className="relative top-1/2 z-10 animate-bounce "
                     height={44}
                     width={40}
                     alt="nintendo ds card"
@@ -150,9 +149,9 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="product-section relative bg-accent80 pb-20">
-            <div className="m-auto flex max-w-screen-xl flex-col pb-36 pt-12 md:flex-row">
-              <div className="product w-full md:w-1/2">
-                <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-12 ">
+            <div className="m-auto flex max-w-screen-xl flex-col pt-12 md:flex-row md:pb-36">
+              <div className="product w-full p-4 md:w-1/2">
+                <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-4 md:p-12 ">
                   <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}
