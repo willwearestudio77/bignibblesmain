@@ -25,7 +25,7 @@ function PartnerUp({ data }: any) {
           </svg>
         </div>
         <div className="z-10 m-auto w-full  ">
-          <div className="text-container m-auto flex	 max-w-[900px] flex-col gap-y-2 p-10 pb-32 pl-10 pt-20 font-sans font-semibold uppercase text-accent md:pb-40 ">
+          <div className="text-container m-auto flex	 max-w-[900px] flex-col gap-y-2 p-10 pb-40 pl-10 pt-20 font-sans font-semibold uppercase text-accent md:pb-40 md:pb-64 ">
             <h2 className="text-stroke-hero text-3xl text-white md:text-7xl	">the uk&apos;s most</h2>
             <div className="flex flex-row text-4xl md:text-9xl">
               <div>un</div>

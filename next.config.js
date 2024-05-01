@@ -20,7 +20,8 @@ module.exports = {
       },
       { protocol: 'https', hostname: 'scontent-sea1-1.cdninstagram.com', pathname: '/v/**' },
       { protocol: 'https', hostname: 'scontent-itm1-1.cdninstagram.com', pathname: '/v/**' },
-      { protocol: 'https', hostname: 'scontent-sea1-1.cdninstagram.com', pathname: '/v/**' }
+      { protocol: 'https', hostname: 'scontent-sea1-1.cdninstagram.com', pathname: '/v/**' },
+      { protocol: 'https', hostname: '*.cdninstagram.com', pathname: '/v/**' }
     ]
   },
   async redirects() {

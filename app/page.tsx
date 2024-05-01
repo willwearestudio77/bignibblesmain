@@ -1,5 +1,6 @@
 import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
+import { PhotoCarousel } from 'components/photo-carousel';
 import PartnerUp from 'components/sections/partner-up';
 import { getCollectionProducts, getHome } from 'lib/shopify';
 import Image from 'next/image';
@@ -36,7 +37,7 @@ export default async function HomePage() {
     <>
       <Suspense>
         <Suspense>
-          <div className="hero-section relative bg-primary pb-60 md:min-h-[75vh] md:pb-20 md:pt-20">
+          <div className="hero-section relative bg-primary pb-60 md:min-h-[75vh] md:pb-40 md:pt-20">
             <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10 leading-8  md:w-3/4 md:pl-10 md:pl-5 lg:pl-20 lg:pt-20">
               <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	leading-relaxed text-accent	 md:text-7xl md:leading-normal">
                 <span className="text-stroke-hero">{data.first_line}</span>
@@ -169,12 +170,14 @@ export default async function HomePage() {
                   />
                 </div>
               </div>
-              <div className="product-desctiption w-full p-8 md:w-1/2 md:p-20">
-                <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
-                <p>{data.product_text_description}</p>
-                <button>
-                  <Link href={`/product/${firstProduct?.handle ?? ''}`}>Read More</Link>
-                </button>
+              <div className="product-desctiption flex w-full items-center p-8 md:w-1/2 md:p-20">
+                <div className="textwrapper">
+                  <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
+                  <p>{data.product_text_description}</p>
+                  <button>
+                    <Link href={`/product/${firstProduct?.handle ?? ''}`}>Read More</Link>
+                  </button>
+                </div>
               </div>
             </div>
             <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
@@ -193,7 +196,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="relative bg-primary">
-            <PartnerUp data="some data" />
+            <PartnerUp />
             <div className="wave absolute -bottom-1 left-0 w-full overflow-hidden">
               <svg
                 className="relative block h-[50px] w-full md:h-[116px]"
@@ -209,9 +212,23 @@ export default async function HomePage() {
               </svg>
             </div>
           </div>
-          <div className="instagram-section relative bg-accent80 py-10">
+          <div className="instagram-section relative bg-accent80 pb-40">
             <h2 className="py-10 text-center text-4xl font-bold uppercase">content</h2>
-            {/* <PhotoCarousel instagramArray={instagramArray} /> */}
+            <PhotoCarousel />
+            <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
+              <svg
+                className="relative block h-[50px] w-full md:h-[116px]"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 1440 121"
+                fill="none"
+              >
+                <path
+                  d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
+                  className="fill-primary"
+                />
+              </svg>
+            </div>
             <div className="button-container flex justify-center">
               <Link href="https://www.instagram.com/bignibblesfood/">
                 <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">

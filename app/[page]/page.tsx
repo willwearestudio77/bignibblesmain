@@ -151,8 +151,8 @@ export default async function Page({ params }: { params: { page: string } }) {
         </div>
       ) : null}
       {page.title === 'The Book' ? (
-        <div className="relative bg-primary">
-          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] flex-col gap-10 px-8 py-20 md:flex-row md:p-20 ">
+        <div className="relative bg-primary md:py-20">
+          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] flex-col justify-between gap-10 px-8 py-20 md:flex-row md:p-20 ">
             <div className="image-section relative w-1/2 md:w-1/4">
               <Image
                 alt="product image"
@@ -162,7 +162,7 @@ export default async function Page({ params }: { params: { page: string } }) {
                 height={800}
               />
             </div>
-            <div className="textsection flex flex-col gap-4 md:w-2/3  md:p-20">
+            <div className="textsection flex max-w-2xl flex-col gap-4 md:w-2/3  ">
               <h5 className="font-sans uppercase text-white">shop</h5>
               <h1 className="font-sans text-4xl font-semibold uppercase text-white">
                 {page.cookbookTitleOne.value}{' '}
@@ -325,7 +325,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'Contact' ? (
         <div className="relative bg-primary ">
-          <div className="content-wrapper relative relative  m-auto flex flex-col gap-10 pt-10  md:flex-row  ">
+          <div className="content-wrapper relative  m-auto flex flex-col pt-10  md:flex-row  ">
             <div className="image-container relative bottom-0 z-0 order-1 w-1/2 md:-order-1 ">
               <Image
                 className=" absolute bottom-0 z-10"
@@ -343,16 +343,19 @@ export default async function Page({ params }: { params: { page: string } }) {
                 <circle opacity="0.8" cx="252.146" cy="251.744" r="251.256" fill="#EFAF14" />
               </svg>
             </div>
-            <div className="textsection left-0 flex flex-col gap-4 px-8 pb-40  pb-72 pt-20 md:w-2/3 md:max-w-2xl ">
-              <h1 className="font-sans text-4xl font-semibold uppercase text-white md:text-6xl ">
-                <span className="text-stroke-hero">let’s cook up</span> <span>something</span>{' '}
-                <span className="text-accent">extraordinary</span>
-                <span> together</span>
-              </h1>
-              <p className="text-white">{page.heroText.value}</p>
-              <button className="mt-4 inline-block rounded-full border-2 border-accent p-4 uppercase text-white hover:bg-accent hover:text-primary md:w-1/3">
-                <Link href={page.contactLink.value}>get in touch</Link>
-              </button>
+            <div className="textsection left-0 flex items-center gap-4 px-8 pb-72 pt-20 md:w-2/3  md:max-w-xl md:pb-60 md:pl-0 md:pr-8 ">
+              <div className="textwrapper">
+                <h1 className="mb-4 font-sans text-4xl font-semibold uppercase text-white md:text-6xl ">
+                  <span className="text-stroke-hero">let’s cook up</span> <span>something</span>{' '}
+                  <span className="text-accent">extraordinary</span>
+                  <span> together</span>
+                </h1>
+
+                <p className="text-white">{page.heroText.value}</p>
+                <button className="mt-4 inline-block rounded-full border-2 border-accent p-4 uppercase text-white hover:bg-accent hover:text-primary md:w-1/3">
+                  <Link href={page.contactLink.value}>get in touch</Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
@@ -373,7 +376,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'Contact' ? (
         <div className="relative bg-accent40 ">
-          <div className="content-wrapper relative  relative m-auto flex flex-col gap-10 px-8 pb-40 pt-20  md:px-20  ">
+          <div className="content-wrapper relative  relative m-auto flex flex-col gap-10 px-8 pb-40 pt-20 md:px-20  md:pb-60  ">
             <h2 className="font-sans text-4xl font-semibold uppercase">
               {page.contactSectionTwoTitle.value}
             </h2>
@@ -444,9 +447,9 @@ export default async function Page({ params }: { params: { page: string } }) {
         </div>
       ) : null}
       {page.title === 'Contact' ? (
-        <div className="relative w-full bg-black  text-white">
+        <div className="relative w-full bg-black text-white md:px-20">
           <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col justify-between gap-10 md:flex-row ">
-            <div className="textsection max-w-2xl px-8 pb-40 md:w-2/3 md:pt-20 ">
+            <div className="textsection max-w-2xl px-8 pb-40 pt-10 md:w-2/3 md:pt-20 ">
               <h2 className="mb-4 text-4xl font-bold uppercase">
                 <span className="text-stroke-hero">ready to </span>stir up the pot?
               </h2>
