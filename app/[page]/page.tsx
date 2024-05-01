@@ -1,11 +1,13 @@
 import { AddToCart } from 'components/cart/add-to-cart';
+import AboutSectionOne from 'components/sections/aboutsectionone';
 import CrazyText from 'components/sections/crazy-text';
-import PartnerUp from 'components/sections/partner-up';
 import { getPage } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import jakeBabyBigNibbles from 'public/jake-baby-big-nibbles.png';
+import jakeChilli from 'public/jake-chilli-big-nibbles.png';
 import jakeWithASpoon from 'public/jake-horwood-spoon.png';
 import tongueEmoji from 'public/tounge-emoji.png';
 import wiseEmoji from 'public/wise-emoji.png';
@@ -44,33 +46,14 @@ export default async function Page({ params }: { params: { page: string } }) {
   const variantData = page.title === 'The Book' ? page.cookbookProduct?.reference.variants : null;
   const variants: any[] = variantData ? variantData.edges.map((edge: any) => edge.node) : [];
   const productImage = page.cookbookProduct?.reference.images?.edges[0].node.originalSrc;
+  console.log(page);
   if (!page) return notFound();
   return (
     <>
-      {page.title === 'About' ? (
-        <>
-          <div className="relative bg-primary">
-            <PartnerUp />
-            <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
-              <svg
-                className="relative block h-[50px] w-full md:h-[116px]"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-                viewBox="0 0 1440 128"
-                fill="none"
-              >
-                <path
-                  d="M0 87.3232L612.669 14.2513C890.532 -18.8888 1172.25 5.99305 1440 87.3232V127.5H0V87.3232Z"
-                  className="fill-accent40"
-                />
-              </svg>
-            </div>
-          </div>
-        </>
-      ) : null}
+      {page.title === 'About' ? <AboutSectionOne /> : null}
       {page.aboutHeader && (
         <div className="relative w-full bg-accent40 py-20">
-          <div className="content-wrapper relative relative flex max-w-[1400px] gap-10 ">
+          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] gap-10 ">
             <div className="textsection w-2/3 p-20">
               <h2 className="mb-4 text-4xl font-bold uppercase">{page.aboutHeader.value}</h2>
               <p className="mb-4">{page.aboutText.value}</p>
@@ -340,6 +323,177 @@ export default async function Page({ params }: { params: { page: string } }) {
                 availableForSale={productAvailability}
               />
             </div>
+          </div>
+        </div>
+      ) : null}
+      {page.title === 'Contact' ? (
+        <div className="relative bg-primary ">
+          <div className="content-wrapper relative relative  m-auto flex gap-10  pt-10  ">
+            <div className="image-container relative bottom-0 z-0 order-1 w-1/2 md:-order-1 ">
+              <Image
+                className=" absolute bottom-0 z-10"
+                width={400}
+                height={400}
+                alt="jake with sweet potatoes"
+                src={jakeChilli}
+              />
+              <svg
+                className="absolute bottom-0 left-0 z-0 h-[400px] w-[400px] blur-2xl "
+                viewBox="0 0 466 503"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle opacity="0.8" cx="252.146" cy="251.744" r="251.256" fill="#EFAF14" />
+              </svg>
+            </div>
+            <div className="textsection left-0 flex w-2/3 max-w-2xl  flex-col gap-4 pb-40 pt-20 ">
+              <h1 className="font-sans text-4xl text-6xl font-semibold uppercase text-white ">
+                <span className="text-stroke-hero">let’s cook up</span> <span>something</span>{' '}
+                <span className="text-accent">extraordinary</span>
+                <span> together</span>
+              </h1>
+              <p className="text-white">{page.heroText.value}</p>
+              <button className="mt-4 inline-block w-1/3 rounded-full border-2 border-accent p-4 uppercase text-white hover:bg-accent hover:text-primary">
+                <Link href={page.contactLink.value}>get in touch</Link>
+              </button>
+            </div>
+          </div>
+          <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
+            <svg
+              className="relative block h-[50px] w-full md:h-[116px]"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1440 121"
+              fill="none"
+            >
+              <path
+                d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
+                className="fill-accent40"
+              />
+            </svg>
+          </div>
+        </div>
+      ) : null}
+      {page.title === 'Contact' ? (
+        <div className="relative bg-accent40 ">
+          <div className="content-wrapper relative  relative m-auto flex flex-col gap-10 px-20 pb-40  pt-20  ">
+            <h2 className="font-sans text-4xl font-semibold uppercase">
+              {page.contactSectionTwoTitle.value}
+            </h2>
+            <div className="flex gap-10">
+              <div className="textwrapper">
+                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB1Title.value}</h3>
+                <p>{page.contactSectionTwoB1Body.value}</p>
+              </div>
+              <div className="textwrapper">
+                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB2Title.value}</h3>
+                <p>{page.contactSectionTwoB2Body.value}</p>
+              </div>
+              <div className="textwrapper">
+                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB3Title.value}</h3>
+                <p>{page.contactSectionTwoB3Body.value}</p>
+              </div>
+            </div>
+          </div>
+          <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
+            <svg
+              className="relative block h-[50px] w-full md:h-[116px]"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1440 121"
+              fill="none"
+            >
+              <path
+                d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
+                className="fill-accent80"
+              />
+            </svg>
+          </div>
+        </div>
+      ) : null}
+      {page.title === 'Contact' ? (
+        <div className="relative bg-accent80 ">
+          <div className="content-wrapper relative relative m-auto  flex min-h-[66vh] gap-10  pt-10  ">
+            <div className="image-container relative bottom-0 z-0 order-1 w-1/2 md:-order-1 ">
+              <Image
+                className=" absolute bottom-0 left-20 z-10"
+                width={400}
+                height={400}
+                alt="jake with sweet potatoes"
+                src={jakeBabyBigNibbles}
+              />
+            </div>
+            <div className="textsection flex w-2/3  max-w-2xl flex-col justify-center gap-4 pb-40 ">
+              <h1 className="font-sans text-4xl text-5xl font-semibold uppercase text-primary ">
+                {page.contactSectionThreeTitle.value}
+              </h1>
+              <p className="text-primary">{page.contactSectionThreeBody.value}</p>
+            </div>
+          </div>
+          <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
+            <svg
+              className="relative block h-[50px] w-full md:h-[116px]"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1440 121"
+              fill="none"
+            >
+              <path
+                d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
+                className="fill-black"
+              />
+            </svg>
+          </div>
+        </div>
+      ) : null}
+      {page.title === 'Contact' ? (
+        <div className="relative w-full bg-black py-20 text-white">
+          <div className="content-wrapper relative m-auto flex max-w-[1400px] justify-between gap-10 ">
+            <div className="textsection w-2/3 max-w-2xl p-20">
+              <h2 className="mb-4 text-4xl font-bold uppercase">
+                <span className="text-stroke-hero">ready to </span>stir up the pot?
+              </h2>
+              <p className="mb-4">{page.contactBottomBody.value}</p>
+              <p className="mb-4 font-semibold text-accent">
+                Contact me today, and let&apos;s start cooking up our next big project!
+              </p>
+              <Link href={page.contactLink.value}>
+                <button className="rounded-full border-2 border-accent p-4 font-semibold uppercase text-accent hover:bg-accent hover:text-primary">
+                  get in touch
+                </button>
+              </Link>
+            </div>
+            <div className="image-section relative block w-1/4">
+              <Image
+                alt="Jake Horwood with a spoon"
+                className="absolute bottom-0 right-0 z-10"
+                src={jakeWithASpoon}
+                width={500}
+                height={500}
+              />
+              <svg
+                className="absolute bottom-0 z-0 blur-3xl"
+                viewBox="0 0 549 550"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle opacity="0.8" cx="274.25" cy="274.956" r="274.25" fill="#EFAF14" />
+              </svg>
+            </div>
+          </div>
+          <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden">
+            <svg
+              className="relative block h-[50px] w-full md:h-[116px]"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1440 80"
+              fill="none"
+            >
+              <path
+                d="M1440 55.5842C1214.42 7.42618 983.258 -9.29672 753.093 5.89086L0 55.5842V80H1440V55.5842Z"
+                className="fill-primary"
+              />
+            </svg>
           </div>
         </div>
       ) : null}

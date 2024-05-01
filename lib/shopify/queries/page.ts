@@ -143,57 +143,87 @@ const pageFragment = /* GraphQL */ `
         value
       }
       secondSectionTitleOne: metafield(namespace: "custom", key: "second_section_one_title") {
-        id
-        namespace
-        key
         value
       }
       secondSectionTitleTwo: metafield(namespace: "custom", key: "second_section_two_title") {
-        id
-        namespace
-        key
         value
       }
       secondSectionSubtileOne: metafield(
         namespace: "custom"
         key: "second_section_first_subheading"
       ) {
-        id
-        namespace
-        key
         value
       }
       secondSectionSubtileTwo: metafield(namespace: "custom", key: "second_section_two_sub") {
-        id
-        namespace
-        key
         value
       }
       secondSectionBodyOne: metafield(namespace: "custom", key: "second_section_one_body") {
-        id
-        namespace
-        key
         value
       }
       secondSectionBodyTwo: metafield(namespace: "custom", key: "section_two_body_two") {
-        id
-        namespace
-        key
         value
       }
       bottomSectionBody: metafield(namespace: "custom", key: "bottom_section_body_cookbook") {
-        id
-        namespace
-        key
         value
       }
       bottomSectionTitle: metafield(
         namespace: "custom"
         key: "bottom_section_cookbook_title_text"
       ) {
-        id
-        namespace
-        key
+        value
+      }
+      contactBottomBody: metafield(namespace: "custom", key: "contact_bottom_body") {
+        value
+      }
+      contactSectionThreeBody: metafield(namespace: "custom", key: "contact_section_three_body") {
+        value
+      }
+      contactSectionThreeBody: metafield(namespace: "custom", key: "contact_section_three_body") {
+        value
+      }
+      contactSectionThreeTitle: metafield(namespace: "custom", key: "contact_section_three_title") {
+        value
+      }
+      contactSectionTwoB3Body: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_three_body"
+      ) {
+        value
+      }
+      contactSectionTwoB2Body: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_two_body"
+      ) {
+        value
+      }
+      contactSectionTwoB1Body: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_one_body"
+      ) {
+        value
+      }
+      contactSectionTwoB3Title: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_three_title"
+      ) {
+        value
+      }
+      contactSectionTwoB2Title: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_two_title"
+      ) {
+        value
+      }
+      contactSectionTwoB1Title: metafield(
+        namespace: "custom"
+        key: "contact_section_two_block_one_title"
+      ) {
+        value
+      }
+      contactSectionTwoTitle: metafield(namespace: "custom", key: "contact_section_two_title") {
+        value
+      }
+      contactLink: metafield(namespace: "custom", key: "contact_link") {
         value
       }
     }

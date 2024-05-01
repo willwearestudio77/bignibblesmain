@@ -51,6 +51,17 @@ export type Money = {
 };
 
 export type Page = {
+  contactBottomBody: any;
+  contactSectionThreeBody: any;
+  contactSectionThreeTitle: any;
+  contactSectionTwoTitle: any;
+  contactSectionTwoB1Title: any;
+  contactSectionTwoB1Body: any;
+  contactSectionTwoB2Title: any;
+  contactSectionTwoB2Body: any;
+  contactSectionTwoB3Title: any;
+  contactSectionTwoB3Body: any;
+  contactLink: any;
   fourthSectionBody: any;
   cookbookTitleOne: any;
   cookbookTitleTwo: any;
@@ -77,7 +88,7 @@ export type Page = {
   aboutHeader: { value: string };
   edge: any;
   aboutText: { value: string };
-  followLink: any;
+  followLink: { value: string };
   fourthSectionTitle: any;
 };
 

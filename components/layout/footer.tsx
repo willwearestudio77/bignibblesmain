@@ -18,7 +18,7 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="bg-primary text-sm text-white">
+    <footer className="relative bg-primary text-sm text-white">
       <div className="relative overflow-hidden px-4 py-20">
         <h2 className="pb-2 text-center text-4xl font-bold uppercase text-accent">
           Join the newsletter

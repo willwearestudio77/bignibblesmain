@@ -1,5 +1,6 @@
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const KEY = process.env.NEXT_PUBLIC_MAILCHIMP_KEY;
+
 const SERVER = process.env.NEXT_PUBLIC_SERVER_PREFIX;
 const AudienceID = process.env.NEXT_PUBLIC_AUDIENCE_ID;
 
