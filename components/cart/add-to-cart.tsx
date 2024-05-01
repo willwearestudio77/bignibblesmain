@@ -10,14 +10,19 @@ import { useFormState, useFormStatus } from 'react-dom';
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
+  backgroundColor
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
+  backgroundColor?: string;
 }) {
   const { pending } = useFormStatus();
-  const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
+  console.log('color:', backgroundColor);
+  const buttonClasses = `relative flex w-full items-center justify-center rounded-full ${
+    backgroundColor === 'primary' ? 'bg-accent text-primary' : 'bg-primary text-accent'
+  } p-4 tracking-wide uppercase font-semibold`;
+  const backgroundColorClass = backgroundColor === 'primary' ? 'bg-primary' : 'bg-accent';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -56,7 +61,11 @@ function SubmitButton({
       })}
     >
       <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+        {pending ? (
+          <LoadingDots className={`mb-3 ${backgroundColorClass}`} />
+        ) : (
+          <PlusIcon className="h-5" />
+        )}
       </div>
       Add To Cart
     </button>
@@ -65,10 +74,12 @@ function SubmitButton({
 
 export function AddToCart({
   variants,
-  availableForSale
+  availableForSale,
+  backgroundColor
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
+  backgroundColor?: string;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
@@ -83,7 +94,11 @@ export function AddToCart({
 
   return (
     <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+      <SubmitButton
+        backgroundColor={backgroundColor}
+        availableForSale={availableForSale}
+        selectedVariantId={selectedVariantId}
+      />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>

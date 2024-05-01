@@ -7,7 +7,7 @@ function PartnerUp({ data }: any) {
   return (
     <div className="partner-up-section relative bg-primary">
       <div className="content-wrapper relative flex w-full flex-col md:flex-row">
-        <div className="image-container relative z-0 order-1 w-1/3 md:-order-1 ">
+        <div className="image-container relative z-0 order-1 w-1/2 pb-20 md:-order-1 ">
           <Image
             className=" absolute bottom-0 z-10"
             width={400}
@@ -16,7 +16,7 @@ function PartnerUp({ data }: any) {
             src={jakeySweetPotatoes}
           />
           <svg
-            className="absolute bottom-0 right-0 z-0 w-[150px] blur-2xl "
+            className="absolute bottom-0 left-0 z-0 h-[400px] w-[400px] blur-2xl "
             viewBox="0 0 466 503"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ function PartnerUp({ data }: any) {
           </svg>
         </div>
         <div className="z-10 m-auto w-full  ">
-          <div className="text-container m-auto	 flex flex-col gap-y-2 pb-40 pl-10 pr-10 pt-20 font-sans font-semibold uppercase text-accent md:p-20 ">
+          <div className="text-container m-auto flex	 max-w-[900px] flex-col gap-y-2 p-10 pb-32 pl-10 pt-20 font-sans font-semibold uppercase text-accent md:pb-40 ">
             <h2 className="text-stroke-hero text-3xl text-white md:text-7xl	">the uk&apos;s most</h2>
             <div className="flex flex-row text-4xl md:text-9xl">
               <div>un</div>
@@ -38,7 +38,7 @@ function PartnerUp({ data }: any) {
               crafting high-quality, well-produced content that&apos;s as delightful to watch as it
               is delicious to taste.
             </p>
-            <button className="inline-block rounded-full border-2 border-accent p-4 uppercase">
+            <button className="mt-4 inline-block w-1/5 rounded-full border-2 border-accent p-4 uppercase hover:bg-accent hover:text-primary">
               <Link href="/contact">get in touch</Link>
             </button>
           </div>

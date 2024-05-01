@@ -1,6 +1,5 @@
 import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
-import PhotoCarousel from 'components/photo-carousel';
 import PartnerUp from 'components/sections/partner-up';
 import { getCollectionProducts, getHome } from 'lib/shopify';
 import Image from 'next/image';
@@ -12,7 +11,7 @@ import hand from 'public/hand.png';
 import jakeyLimeEyes from 'public/jake-top.png';
 import { Suspense } from 'react';
 export const runtime = 'edge';
-const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
+// const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -22,9 +21,9 @@ export const metadata = {
 
 export default async function HomePage() {
   const data = await getHome();
-  const instagramData = await fetch(url);
-  const instagram = await instagramData.json();
-  const instagramArray = await instagram.data.slice(0, 10);
+  // const instagramData = await fetch(url);
+  // const instagram = await instagramData.json();
+  // const instagramArray = await instagram.data.slice(0, 10);
   const products = await getCollectionProducts({
     collection: 'frontpage',
     reverse: true,
@@ -32,6 +31,7 @@ export default async function HomePage() {
   });
   const firstProduct = products[0];
   const firstProductImage = firstProduct?.images[0];
+  console.log('products:', firstProduct);
 
   return (
     <>
@@ -135,18 +135,6 @@ export default async function HomePage() {
               <circle opacity="0.8" cx="252.146" cy="251.744" r="251.256" fill="#EFAF14" />
             </svg>
             <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
-              {/* <svg
-                className="relative block h-[102px] w-full"
-                data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1200 120"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                  className="fill-accent80"
-                ></path>
-              </svg> */}
               <svg
                 className="relative block h-[50px] w-full md:h-[116px]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +150,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="product-section relative bg-accent80 pb-20">
-            <div className="m-auto flex max-w-screen-xl flex-col py-12 md:flex-row">
+            <div className="m-auto flex max-w-screen-xl flex-col pb-36 pt-12 md:flex-row">
               <div className="product w-full md:w-1/2">
                 <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-12 ">
                   <Image
@@ -172,8 +160,10 @@ export default async function HomePage() {
                     alt="hand icon"
                     src={firstProductImage?.url ?? ''}
                   ></Image>
-                  <h5 className="pb-2">{firstProduct?.title ?? ''}</h5>
-                  <p className="pb-4">£{firstProduct?.priceRange.maxVariantPrice.amount}0</p>
+                  <h5 className="pb-2 font-semibold">{firstProduct?.title ?? ''}</h5>
+                  <p className="pb-4 font-semibold">
+                    £{firstProduct?.priceRange.maxVariantPrice.amount}0
+                  </p>
                   <AddToCart
                     variants={firstProduct?.variants ?? []}
                     availableForSale={firstProduct?.availableForSale ?? false}
@@ -188,25 +178,41 @@ export default async function HomePage() {
                 </button>
               </div>
             </div>
-            <div className="wave absolute -bottom-1 left-0 w-full rotate-180 overflow-hidden  ">
+            <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
               <svg
-                data-name="Layer 1"
+                className="relative block h-[50px] w-full md:h-[116px]"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 1200 120"
                 preserveAspectRatio="none"
+                viewBox="0 0 1440 121"
+                fill="none"
               >
                 <path
-                  d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                  d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
                   className="fill-primary"
-                ></path>
+                />
               </svg>
             </div>
           </div>
-
-          <PartnerUp data="some data" />
+          <div className="relative bg-primary">
+            <PartnerUp data="some data" />
+            <div className="wave absolute -bottom-1 left-0 w-full overflow-hidden">
+              <svg
+                className="relative block h-[50px] w-full md:h-[116px]"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 1440 80"
+                fill="none"
+              >
+                <path
+                  d="M1440 55.5842C1214.42 7.42618 983.258 -9.29672 753.093 5.89086L0 55.5842V80H1440V55.5842Z"
+                  className="fill-accent80"
+                />
+              </svg>
+            </div>
+          </div>
           <div className="instagram-section relative bg-accent80 py-10">
             <h2 className="py-10 text-center text-4xl font-bold uppercase">content</h2>
-            <PhotoCarousel instagramArray={instagramArray} />
+            {/* <PhotoCarousel instagramArray={instagramArray} /> */}
             <div className="button-container flex justify-center">
               <Link href="https://www.instagram.com/bignibblesfood/">
                 <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">

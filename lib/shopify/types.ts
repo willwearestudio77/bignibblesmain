@@ -51,6 +51,18 @@ export type Money = {
 };
 
 export type Page = {
+  fourthSectionBody: any;
+  cookbookTitleOne: any;
+  cookbookTitleTwo: any;
+  cookbookTitleThree: any;
+  heroText: any;
+  secondSectionSubtileOne: any;
+  secondSectionTitleOne: any;
+  secondSectionBodyOne: any;
+  secondSectionSubtileTwo: any;
+  secondSectionTitleTwo: any;
+  secondSectionBodyTwo: any;
+  listOfCities: any;
   metafield: any;
   id: string;
   title: string;
@@ -61,6 +73,12 @@ export type Page = {
   createdAt: string;
   updatedAt: string;
   heroImage: any;
+  cookbookProduct: any;
+  aboutHeader: { value: string };
+  edge: any;
+  aboutText: { value: string };
+  followLink: any;
+  fourthSectionTitle: any;
 };
 
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {

@@ -42,37 +42,39 @@ export default async function Footer() {
           width={400}
         />
       </div>
-      <div className="mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 bg-black  px-6 py-12 text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
-        <div>
-          <Link
-            className="flex items-center gap-2 py-4 text-black md:pt-1 dark:text-white"
-            href="/"
+      <div className="mx-auto flex w-full  flex-col justify-between gap-6 bg-black px-10 py-12 text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
+        <div className="footer-container mx-auto flex w-full max-w-[1400px] justify-around px-10">
+          <div>
+            <Link
+              className="flex items-center gap-2 py-4 text-black md:pt-1 dark:text-white"
+              href="/"
+            >
+              <Image alt="Logo" height={72} src={logoDark} width={261} />
+            </Link>
+            <SocialMediaIcons />
+          </div>
+          <Suspense
+            fallback={
+              <div className="flex h-[188px] w-[200px] flex-col gap-2">
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+                <div className={skeleton} />
+              </div>
+            }
           >
-            <Image alt="Logo" height={72} src={logoDark} width={261} />
-          </Link>
-          <SocialMediaIcons />
-        </div>
-        <Suspense
-          fallback={
-            <div className="flex h-[188px] w-[200px] flex-col gap-2">
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
+            <div className="browse-menu">
+              <h5 className="text-xl font-bold uppercase text-accent">browse</h5>
+              <FooterMenu menu={browseMenu} />
             </div>
-          }
-        >
-          <div className="browse-menu">
-            <h5 className="text-xl font-bold uppercase text-accent">browse</h5>
-            <FooterMenu menu={browseMenu} />
-          </div>
-          <div className="legal-menu">
-            <h5 className="text-xl font-bold uppercase text-accent">legal sh*t</h5>
-            <FooterMenu menu={legalMenu} />
-          </div>
-        </Suspense>
+            <div className="legal-menu">
+              <h5 className="text-xl font-bold uppercase text-accent">legal sh*t</h5>
+              <FooterMenu menu={legalMenu} />
+            </div>
+          </Suspense>
+        </div>
       </div>
       <div className=" bg-accent py-6  text-sm text-primary dark:border-neutral-700">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
