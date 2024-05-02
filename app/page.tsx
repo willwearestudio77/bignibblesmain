@@ -12,9 +12,7 @@ import hand from 'public/hand.png';
 import jakeyLimeEyes from 'public/jake-top.png';
 import rock from 'public/rock.png';
 import { Suspense } from 'react';
-
 export const runtime = 'edge';
-// const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -24,9 +22,7 @@ export const metadata = {
 
 export default async function HomePage() {
   const data = await getHome();
-  // const instagramData = await fetch(url);
-  // const instagram = await instagramData.json();
-  // const instagramArray = await instagram.data.slice(0, 10);
+
   const products = await getCollectionProducts({
     collection: 'frontpage',
     reverse: true,

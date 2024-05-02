@@ -145,15 +145,29 @@ export default async function Page({ params }: { params: { page: string } }) {
         </>
       ) : null}
       {page.title === 'About' ? (
-        <div className="bg-accent40 py-10">
+        <div className="relative bg-accent40 pb-40">
           <h3 className="mb-6 text-center text-4xl font-bold uppercase text-primary">content</h3>
           <PhotoCarousel />
           <div className="button-container flex justify-center">
             <Link href="https://www.instagram.com/bignibblesfood/">
-              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
+              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
                 follow me
               </button>
             </Link>
+          </div>
+          <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
+            <svg
+              className="relative block h-[50px] w-full md:h-[116px]"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1440 121"
+              fill="none"
+            >
+              <path
+                d="M0 103.632C144.463 22.5296 310.458 -11.9485 475.269 4.91572L1440 103.632V121H0V103.632Z"
+                className="fill-primary"
+              />
+            </svg>
           </div>
         </div>
       ) : null}
