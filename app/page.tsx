@@ -38,9 +38,9 @@ export default async function HomePage() {
       <Suspense>
         <Suspense>
           <div className="hero-section relative bg-primary pb-60 md:min-h-[75vh] md:pb-40 md:pt-20">
-            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10 leading-8  md:w-3/4 md:pl-10 md:pl-5 lg:pl-20 lg:pt-20">
+            <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10 leading-8  md:w-3/4 md:pl-10 lg:pl-20 lg:pt-20">
               <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	leading-relaxed text-accent	 md:text-7xl md:leading-normal">
-                <span className="text-stroke-hero">{data.first_line}</span>
+                <span className="text-stroke-hero text-transparent">{data.first_line}</span>
                 <div className="relative inline-block px-5  align-middle ">
                   <Image
                     className="relative z-10 animate-bounce  "

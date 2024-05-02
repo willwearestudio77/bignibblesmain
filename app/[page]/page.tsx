@@ -53,9 +53,9 @@ export default async function Page({ params }: { params: { page: string } }) {
     <>
       {page.title === 'About' ? <AboutSectionOne /> : null}
       {page.aboutHeader && (
-        <div className="relative w-full bg-accent40 md:py-20">
-          <div className="content-wrapper relative relative  m-auto flex max-w-[1400px] flex-col gap-10 md:flex-row ">
-            <div className="textsection p-8 pb-64 md:w-2/3 md:p-20">
+        <div className="relative w-full bg-accent40 ">
+          <div className="content-wrapper relative m-auto  flex min-h-[66vh] max-w-[1400px] flex-col gap-10 md:flex-row ">
+            <div className="textsection p-8 pb-72 md:w-2/3 md:p-20">
               <h2 className="mb-4 text-4xl font-bold uppercase">{page.aboutHeader.value}</h2>
               <p className="mb-4">{page.aboutText.value}</p>
               <Link href={page.followLink.value}>
@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: { page: string } }) {
                 </button>
               </Link>
             </div>
-            <div className="image-section relative left-1/2 block w-1/2 md:left-0 md:w-1/4">
+            <div className="image-section relative bottom-0 left-1/2 block w-1/2 md:left-0 md:w-1/4">
               <Image
                 alt="Jake Horwood with a spoon"
                 className="absolute bottom-0 right-0 z-10"
@@ -160,7 +160,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'The Book' ? (
         <div className="relative bg-primary md:py-20">
-          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] flex-col justify-between gap-10 px-8 py-20 md:flex-row md:p-20 ">
+          <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col justify-between gap-10 px-8 py-20 md:flex-row md:p-20 ">
             <div className="image-section relative w-1/2 md:w-1/4">
               <Image
                 alt="product image"
@@ -203,7 +203,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'The Book' ? (
         <div className="relative bg-accent40 pb-20 pt-20">
-          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] flex-col gap-20 px-8 md:flex-row md:p-20 ">
+          <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col gap-20 px-8 md:flex-row md:p-20 ">
             <div className="textsection md:w-1/2">
               <h5 className="mb-2 font-sans text-xl font-semibold uppercase">
                 {page.secondSectionSubtileOne.value}
@@ -304,7 +304,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'The Book' ? (
         <div className="relative bg-primary">
-          <div className="content-wrapper relative relative m-auto flex max-w-[1400px] flex-col gap-10 py-10 md:flex-row md:p-20 ">
+          <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col gap-10 py-10 md:flex-row md:p-20 ">
             <div className="image-section relative flex w-1/2 px-8 md:w-1/4">
               <Image
                 alt="product image"
@@ -384,7 +384,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'Contact' ? (
         <div className="relative bg-accent40 ">
-          <div className="content-wrapper relative  relative m-auto flex flex-col gap-10 px-8 pb-40 pt-20 md:px-20  md:pb-60  ">
+          <div className="content-wrapper relative m-auto flex flex-col gap-10 px-8 pb-40 pt-20 md:px-20  md:pb-60  ">
             <h2 className="font-sans text-4xl font-semibold uppercase">
               {page.contactSectionTwoTitle.value}
             </h2>
@@ -421,7 +421,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       ) : null}
       {page.title === 'Contact' ? (
         <div className="relative bg-accent80 ">
-          <div className="content-wrapper relative relative m-auto flex min-h-[66vh] flex-col gap-10 pt-10  md:flex-row  ">
+          <div className="content-wrapper relative m-auto flex min-h-[66vh] flex-col gap-10 pt-10  md:flex-row  ">
             <div className="image-container relative bottom-0 z-0 order-1 w-1/2 pb-20 md:-order-1 ">
               <Image
                 className=" absolute bottom-0 left-20 z-10"

@@ -1,9 +1,44 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
+'use client';
+import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import jakeySweetPotatoes from 'public/jake-sweet-potatoes-big-nibbles-partner.png';
+import { useEffect, useRef } from 'react';
+function PartnerUp() {
+  const textRef = useRef(null);
+  useEffect(() => {
+    const animation = gsap.to(textRef.current, {
+      rotation: 8,
+      paused: true,
+      duration: 0.5,
+      transformOrigin: 'bottom left',
+      delay: 1
+    });
 
-function PartnerUp({ data }: any) {
-  console.log(data);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animation.restart();
+        } else {
+          animation.pause();
+        }
+      });
+    });
+
+    if (textRef.current) {
+      const currentRef = textRef.current;
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (textRef.current) {
+        const currentRef = textRef.current;
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
   return (
     <div className="partner-up-section relative bg-primary">
       <div className="content-wrapper relative flex w-full flex-col md:flex-row">
@@ -25,11 +60,13 @@ function PartnerUp({ data }: any) {
           </svg>
         </div>
         <div className="z-10 m-auto w-full  ">
-          <div className="text-container m-auto flex	 max-w-[900px] flex-col gap-y-2 p-10 pb-40 pl-10 pt-20 font-sans font-semibold uppercase text-accent md:pb-40 md:pb-64 ">
+          <div className="text-container m-auto flex	 max-w-[900px] flex-col gap-y-2 p-10 pb-40 pl-10 pt-20 font-sans font-semibold uppercase text-accent md:pb-64 ">
             <h2 className="text-stroke-hero text-3xl text-white md:text-7xl	">the uk&apos;s most</h2>
             <div className="flex flex-row text-4xl md:text-9xl">
               <div>un</div>
-              <div className="translate-y-3 rotate-12 md:translate-y-12	">hinged</div>
+              <div ref={textRef} className="  	">
+                hinged
+              </div>
             </div>
             <h2 className="text-3xl text-white md:text-7xl">food</h2>
             <h2 className="text-3xl text-white md:text-7xl">creator</h2>
