@@ -31,3 +31,7 @@ button {
 .crazy-text {
   line-height: 1.5em !important;
 }
+.stamplink:hover img {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}

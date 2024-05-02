@@ -2,6 +2,7 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
 import { PhotoCarousel } from 'components/photo-carousel';
 import PartnerUp from 'components/sections/partner-up';
+import Stamps from 'components/stamps';
 import { getCollectionProducts, getHome } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,12 +39,13 @@ export default async function HomePage() {
       <Suspense>
         <Suspense>
           <div className="hero-section relative bg-primary pb-60 md:min-h-[75vh] md:pb-40 md:pt-20">
+            <Stamps />
             <div className="herotext relative z-30 my-auto flex max-w-4xl items-center p-10 leading-8  md:w-3/4 md:pl-10 lg:pl-20 lg:pt-20">
               <div className=" relative items-center text-wrap align-middle	 font-sans text-4xl font-semibold uppercase	leading-relaxed text-accent	 md:text-7xl md:leading-normal">
                 <span className="text-stroke-hero text-transparent">{data.first_line}</span>
                 <div className="relative inline-block px-5  align-middle ">
                   <Image
-                    className="relative z-10 animate-bounce  "
+                    className="relative z-10 transition-transform hover:scale-125  "
                     height={69}
                     width={48}
                     alt="hand icon"
@@ -63,7 +65,7 @@ export default async function HomePage() {
                 {data.second_line}
                 <div className="relative inline-block px-5 py-5 align-middle  md:py-10">
                   <Image
-                    className="relative top-1/2 z-10 animate-bounce "
+                    className="relative top-1/2 z-10 transition-transform hover:scale-125 "
                     height={36}
                     width={36}
                     alt="chilli icon"
@@ -83,9 +85,9 @@ export default async function HomePage() {
                 <span className="text-stroke-hero">{data.third_line}</span>
                 <div className="relative inline-block  px-5	 align-middle  ">
                   <Image
-                    className="relative top-1/2 z-10 animate-bounce "
-                    height={44}
-                    width={40}
+                    className="relative top-1/2 z-10 h-[40px] w-[44px] transition-transform hover:scale-125	 "
+                    height={200}
+                    width={200}
                     alt="nintendo ds card"
                     src={dscard}
                   ></Image>
@@ -102,7 +104,7 @@ export default async function HomePage() {
                 </div>
                 {data.fourth_line}
                 <Link href="/about">
-                  <button className="m-auto ml-4 inline-block rounded-full border-2 border-accent p-4 align-middle  	">
+                  <button className="m-auto ml-4 inline-block rounded-full border-2 border-accent p-4 align-middle 	">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="48"
@@ -129,7 +131,7 @@ export default async function HomePage() {
               />
             </div>
             <svg
-              className="absolute bottom-20 right-0 z-0 w-[150px] blur-2xl "
+              className="absolute bottom-20 right-0 z-0 w-[150px] blur-2xl md:w-[400px] "
               viewBox="0 0 466 503"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
