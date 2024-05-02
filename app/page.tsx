@@ -10,6 +10,7 @@ import chilli from 'public/chilli.png';
 import dscard from 'public/ds.png';
 import hand from 'public/hand.png';
 import jakeyLimeEyes from 'public/jake-top.png';
+import rock from 'public/rock.png';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -155,8 +156,28 @@ export default async function HomePage() {
           </div>
           <div className="product-section relative bg-accent80 pb-20">
             <div className="m-auto flex max-w-screen-xl flex-col pt-12 md:flex-row md:pb-36">
-              <div className="product w-full p-4 md:w-1/2">
-                <div className="featured-product-conatiner m-auto max-w-sm rounded-lg  border-2 border-accent40 p-4 md:p-12 ">
+              <div className="product homepage-product w-full p-4 md:w-1/2">
+                <div className="featured-product-conatiner relative m-auto max-w-sm rounded-lg  border-2 border-accent40 p-4 md:p-12 ">
+                  <div className="rock absolute left-0 top-0 z-20">
+                    <div className="relative">
+                      <Image
+                        className="absolute left-1/2 z-10	 -translate-x-1/2 transition-transform hover:scale-125  "
+                        height={69}
+                        width={48}
+                        alt="hand icon"
+                        src={rock}
+                      ></Image>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80"
+                        height="81"
+                        viewBox="0 0 80 81"
+                        fill="none"
+                      >
+                        <circle cx="40.1802" cy="40.6487" r="39.8198" fill="#231F20" />
+                      </svg>
+                    </div>
+                  </div>
                   <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}
@@ -180,8 +201,8 @@ export default async function HomePage() {
                     {data.second_section_title}
                   </h2>
                   <p className="mb-4 text-primary">{data.product_text_description}</p>
-                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
-                    <Link href={`/product/${firstProduct?.handle ?? ''}`}>Read More</Link>
+                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
+                    <Link href={'/the-book'}>Read More</Link>
                   </button>
                 </div>
               </div>
@@ -237,7 +258,7 @@ export default async function HomePage() {
             </div>
             <div className="button-container flex justify-center">
               <Link href="https://www.instagram.com/bignibblesfood/">
-                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
+                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
                   follow me
                 </button>
               </Link>

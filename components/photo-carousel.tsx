@@ -1,5 +1,5 @@
-import Image from 'next/image';
-
+import { Suspense } from 'react';
+import InstagramImage from './instaimages';
 export async function PhotoCarousel() {
   if (!process.env.NEXT_PUBLIC_INSTAGRAMKEY) {
     throw new Error('INSTAGRAMKEY is not defined');
@@ -10,18 +10,14 @@ export async function PhotoCarousel() {
   const instagram = await instagramData.json();
   const instagramArray = await instagram.data.slice(0, 10);
   return (
-    <div className="carousel carousel-center w-full space-x-4  rounded-box p-4">
-      {instagramArray.map((item: any, index: number) => (
-        <div className="cover carousel-item" key={index}>
-          <Image
-            className="cover h-auto w-auto rounded-box"
-            alt={item.caption}
-            width={200}
-            height={200}
-            src={item.media_url}
-          />
-        </div>
-      ))}
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="carousel carousel-center w-full space-x-4  rounded-box p-4">
+        {instagramArray.map((item: any, index: number) => (
+          <div className="cover carousel-item" key={index}>
+            <InstagramImage item={item} />
+          </div>
+        ))}
+      </div>
+    </Suspense>
   );
 }

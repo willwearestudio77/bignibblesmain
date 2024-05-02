@@ -29,14 +29,14 @@ export default async function Footer() {
         <ContactForm />
         <Image
           alt="Spam"
-          className="absolute left-0 top-1 z-0 w-[100px] rotate-12"
+          className="absolute left-0 top-1 z-0 w-[100px] rotate-12 lg:w-[200px] xl:w-[300px]"
           height={400}
           src={spam}
           width={400}
         />
         <Image
           alt="Spam"
-          className="absolute bottom-1 right-0 z-0 w-[100px] -rotate-12"
+          className="absolute bottom-1 right-0 z-0 w-[100px] -rotate-12 lg:w-[200px] xl:w-[300px]"
           height={400}
           src={spam}
           width={400}

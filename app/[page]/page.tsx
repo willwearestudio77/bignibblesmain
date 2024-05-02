@@ -47,7 +47,6 @@ export default async function Page({ params }: { params: { page: string } }) {
   const variantData = page.title === 'The Book' ? page.cookbookProduct?.reference.variants : null;
   const variants: any[] = variantData ? variantData.edges.map((edge: any) => edge.node) : [];
   const productImage = page.cookbookProduct?.reference.images?.edges[0].node.originalSrc;
-  console.log(page);
   if (!page) return notFound();
   return (
     <>
@@ -257,14 +256,14 @@ export default async function Page({ params }: { params: { page: string } }) {
             >
               <path
                 d="M1440 72.3994L725.948 8.28947C524.482 -9.79885 321.437 2.78048 123.744 45.5981L0 72.3994V101.5H1440V72.3994Z"
-                className="fill-accent"
+                className="fill-accent80"
               />
             </svg>
           </div>
         </div>
       ) : null}
       {page.title === 'The Book' ? (
-        <div className="relative bg-accent pb-40">
+        <div className="relative bg-accent80 pb-40">
           <div className="content-wrapper m-auto max-w-[1000px] p-10">
             <h1 className="mb-10 text-center text-xl font-semibold">List of featured cities</h1>
             <ul className=" grid grid-cols-2 gap-x-4 text-lg font-semibold md:grid-cols-4">
