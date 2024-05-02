@@ -176,9 +176,11 @@ export default async function HomePage() {
               </div>
               <div className="product-desctiption flex w-full items-center p-8 md:w-1/2 md:p-20">
                 <div className="textwrapper">
-                  <h2 className=" py-4 text-4xl font-bold">{data.second_section_title}</h2>
-                  <p>{data.product_text_description}</p>
-                  <button>
+                  <h2 className=" py-4 text-4xl font-bold uppercase text-primary">
+                    {data.second_section_title}
+                  </h2>
+                  <p className="mb-4 text-primary">{data.product_text_description}</p>
+                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
                     <Link href={`/product/${firstProduct?.handle ?? ''}`}>Read More</Link>
                   </button>
                 </div>

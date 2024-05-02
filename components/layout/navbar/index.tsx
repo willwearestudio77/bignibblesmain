@@ -1,6 +1,5 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'public/bn-logo.png';
@@ -8,11 +7,10 @@ import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 
 export default async function Navbar() {
-  const menu = await getMenu('main-menu');
   return (
     <nav className="relative flex items-center justify-between bg-accent p-4 lg:px-6">
       <div className="block flex-none md:hidden ">
-        <MobileMenu menu={menu} />
+        <MobileMenu />
       </div>
       <div className="flex w-full items-center">
         <div className="flex w-full justify-between md:w-full">

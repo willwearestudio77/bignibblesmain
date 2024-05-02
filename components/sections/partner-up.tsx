@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 'use client';
+import StampTwo from 'components/stamptwo';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,6 +44,7 @@ function PartnerUp() {
     <div className="partner-up-section relative bg-primary">
       <div className="content-wrapper relative flex w-full flex-col md:flex-row">
         <div className="image-container relative z-0 order-1 w-1/2 pb-40 md:-order-1 md:pb-20 ">
+          <StampTwo />
           <Image
             className=" absolute bottom-0 z-10"
             width={400}

@@ -35,3 +35,11 @@ button {
   transform: scale(0.8);
   transition: 0.3s ease;
 }
+.hand-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 9999;
+}
