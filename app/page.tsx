@@ -3,6 +3,7 @@ import Footer from 'components/layout/footer';
 import { PhotoCarousel } from 'components/photo-carousel';
 import PartnerUp from 'components/sections/partner-up';
 import Stamps from 'components/stamps';
+import getInstagramData from 'lib/instagram';
 import { getCollectionProducts, getHome } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,7 +23,7 @@ export const metadata = {
 
 export default async function HomePage() {
   const data = await getHome();
-
+  const instagramArray = await getInstagramData();
   const products = await getCollectionProducts({
     collection: 'frontpage',
     reverse: true,
@@ -30,7 +31,6 @@ export default async function HomePage() {
   });
   const firstProduct = products[0];
   const firstProductImage = firstProduct?.images[0];
-
   return (
     <>
       <Suspense>
@@ -197,7 +197,7 @@ export default async function HomePage() {
                     {data.second_section_title}
                   </h2>
                   <p className="mb-4 text-primary">{data.product_text_description}</p>
-                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
+                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
                     <Link href={'/the-book'}>Read More</Link>
                   </button>
                 </div>
@@ -237,7 +237,8 @@ export default async function HomePage() {
           </div>
           <div className="instagram-section relative bg-accent80 pb-40">
             <h2 className="py-10 text-center text-4xl font-bold uppercase">content</h2>
-            <PhotoCarousel />
+
+            <PhotoCarousel instagramArray={instagramArray} />
             <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
               <svg
                 className="relative block h-[50px] w-full md:h-[116px]"
@@ -254,7 +255,7 @@ export default async function HomePage() {
             </div>
             <div className="button-container flex justify-center">
               <Link href="https://www.instagram.com/bignibblesfood/">
-                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
+                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
                   follow me
                 </button>
               </Link>

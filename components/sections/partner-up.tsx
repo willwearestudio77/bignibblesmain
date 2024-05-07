@@ -77,7 +77,7 @@ function PartnerUp() {
               crafting high-quality, well-produced content that&apos;s as delightful to watch as it
               is delicious to taste.
             </p>
-            <button className="mt-4 inline-block w-full rounded-full border-2 border-accent p-4 uppercase hover:bg-accent hover:text-primary md:w-1/5">
+            <button className="mt-4 inline-block w-full rounded-full border-2 border-accent p-4 uppercase hover:bg-accent hover:text-primary md:w-2/5">
               <Link href="/contact">get in touch</Link>
             </button>
           </div>

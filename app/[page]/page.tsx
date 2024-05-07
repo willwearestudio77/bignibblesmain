@@ -2,6 +2,7 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import { PhotoCarousel } from 'components/photo-carousel';
 import AboutSectionOne from 'components/sections/aboutsectionone';
 import CrazyText from 'components/sections/crazy-text';
+import getInstagramData from 'lib/instagram';
 import { getPage } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -12,7 +13,6 @@ import jakeChilli from 'public/jake-chilli-big-nibbles.png';
 import jakeWithASpoon from 'public/jake-horwood-spoon.png';
 import tongueEmoji from 'public/tounge-emoji.png';
 import wiseEmoji from 'public/wise-emoji.png';
-
 // const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const runtime = 'edge';
 
@@ -40,9 +40,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
-  // const instagramData = await fetch(url);
-  // const instagram = await instagramData.json();
-  // const instagramArray = await instagram.data.slice(0, 10);
+  const instagramArray = await getInstagramData();
   const productAvailability = page.cookbookProduct?.reference.totalInventory > 0 ? true : false;
   const variantData = page.title === 'The Book' ? page.cookbookProduct?.reference.variants : null;
   const variants: any[] = variantData ? variantData.edges.map((edge: any) => edge.node) : [];
@@ -55,10 +53,12 @@ export default async function Page({ params }: { params: { page: string } }) {
         <div className="relative w-full bg-accent40 ">
           <div className="content-wrapper relative m-auto  flex min-h-[66vh] max-w-[1400px] flex-col gap-10 md:flex-row ">
             <div className="textsection p-8 pb-72 md:w-2/3 md:p-20">
-              <h2 className="mb-4 text-4xl font-bold uppercase">{page.aboutHeader.value}</h2>
-              <p className="mb-4">{page.aboutText.value}</p>
+              <h2 className="mb-4 text-4xl font-bold uppercase text-primary">
+                {page.aboutHeader.value}
+              </h2>
+              <p className="mb-4 text-primary">{page.aboutText.value}</p>
               <Link href={page.followLink.value}>
-                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase">
+                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary">
                   follow me
                 </button>
               </Link>
@@ -124,8 +124,10 @@ export default async function Page({ params }: { params: { page: string } }) {
           </div>
           <div className="section-container relative bg-accent80 p-10 pb-40 pt-20">
             <div className="narrow-content-wrapper m-auto max-w-[600px] ">
-              <h2 className="mb-4 text-2xl font-bold">{page.fourthSectionTitle.value}</h2>
-              <p className="mb-4">{page.fourthSectionBody.value}</p>
+              <h2 className="mb-4 text-2xl font-bold text-primary">
+                {page.fourthSectionTitle.value}
+              </h2>
+              <p className="mb-4 text-primary">{page.fourthSectionBody.value}</p>
             </div>
             <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden">
               <svg
@@ -147,10 +149,10 @@ export default async function Page({ params }: { params: { page: string } }) {
       {page.title === 'About' ? (
         <div className="relative bg-accent40 pb-40">
           <h3 className="mb-6 text-center text-4xl font-bold uppercase text-primary">content</h3>
-          <PhotoCarousel />
+          <PhotoCarousel instagramArray={instagramArray} />
           <div className="button-container flex justify-center">
             <Link href="https://www.instagram.com/bignibblesfood/">
-              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase hover:bg-primary hover:text-accent">
+              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
                 follow me
               </button>
             </Link>
@@ -218,10 +220,10 @@ export default async function Page({ params }: { params: { page: string } }) {
         <div className="relative bg-accent40 pb-20 pt-20">
           <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col gap-20 px-8 md:flex-row md:p-20 ">
             <div className="textsection md:w-1/2">
-              <h5 className="mb-2 font-sans text-xl font-semibold uppercase">
+              <h5 className="mb-2 font-sans text-xl font-semibold uppercase text-primary">
                 {page.secondSectionSubtileOne.value}
               </h5>
-              <h3 className="mb-2 font-sans text-4xl font-semibold uppercase">
+              <h3 className="mb-2 font-sans text-4xl font-semibold uppercase text-primary">
                 {page.secondSectionTitleOne.value}{' '}
                 <Image
                   alt="emoji of a wise face"
@@ -231,7 +233,7 @@ export default async function Page({ params }: { params: { page: string } }) {
                   height={800}
                 />
               </h3>
-              <p>{page.secondSectionBodyOne.value}</p>
+              <p className="text-primary">{page.secondSectionBodyOne.value}</p>
             </div>
             <div className="imagesection md:w-1/2">
               <div className="image-container mb-10 w-1/2 md:w-1/2">
@@ -244,10 +246,10 @@ export default async function Page({ params }: { params: { page: string } }) {
                 />
               </div>
               <div className="textblock">
-                <h5 className="mb-2 font-sans text-xl font-semibold uppercase">
+                <h5 className="mb-2 font-sans text-xl font-semibold uppercase text-primary">
                   {page.secondSectionSubtileTwo.value}
                 </h5>
-                <h3 className="mb-2 font-sans text-4xl font-semibold uppercase">
+                <h3 className="mb-2 font-sans text-4xl font-semibold uppercase text-primary">
                   {page.secondSectionTitleTwo.value}{' '}
                   <Image
                     alt="emoji of a wise face"
@@ -257,7 +259,7 @@ export default async function Page({ params }: { params: { page: string } }) {
                     height={800}
                   />
                 </h3>
-                <p>{page.secondSectionBodyTwo.value}</p>
+                <p className="text-primary">{page.secondSectionBodyTwo.value}</p>
               </div>
             </div>
           </div>
@@ -279,15 +281,20 @@ export default async function Page({ params }: { params: { page: string } }) {
       {page.title === 'The Book' ? (
         <div className="relative bg-accent80 pb-40">
           <div className="content-wrapper m-auto max-w-[1000px] p-10">
-            <h1 className="mb-10 text-center text-xl font-semibold">List of featured cities</h1>
-            <ul className=" grid grid-cols-2 gap-x-4 text-lg font-semibold md:grid-cols-4">
+            <h1 className="mb-10 text-center text-xl font-semibold text-primary">
+              List of featured cities
+            </h1>
+            <ul className=" grid grid-cols-2 gap-x-4 text-lg font-semibold text-primary md:grid-cols-4">
               {(() => {
                 try {
                   const cities = JSON.parse(page.listOfCities.value);
                   return (
                     Array.isArray(cities) &&
                     cities.map((city, index) => (
-                      <li className="border-t py-4 text-center text-sm md:text-xl" key={index}>
+                      <li
+                        className="border-t py-4 text-center text-sm text-primary md:text-xl"
+                        key={index}
+                      >
                         {city}
                       </li>
                     ))
@@ -398,21 +405,27 @@ export default async function Page({ params }: { params: { page: string } }) {
       {page.title === 'Contact' ? (
         <div className="relative bg-accent40 ">
           <div className="content-wrapper relative m-auto flex flex-col gap-10 px-8 pb-40 pt-20 md:px-20  md:pb-60  ">
-            <h2 className="font-sans text-4xl font-semibold uppercase">
+            <h2 className="font-sans text-4xl font-semibold uppercase text-primary">
               {page.contactSectionTwoTitle.value}
             </h2>
             <div className="flex flex-col gap-10 lg:flex-row">
               <div className="textwrapper">
-                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB1Title.value}</h3>
-                <p>{page.contactSectionTwoB1Body.value}</p>
+                <h3 className="mb-4 font-semibold text-primary">
+                  {page.contactSectionTwoB1Title.value}
+                </h3>
+                <p className="text-primary">{page.contactSectionTwoB1Body.value}</p>
               </div>
               <div className="textwrapper">
-                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB2Title.value}</h3>
-                <p>{page.contactSectionTwoB2Body.value}</p>
+                <h3 className="mb-4 font-semibold text-primary">
+                  {page.contactSectionTwoB2Title.value}
+                </h3>
+                <p className="text-primary">{page.contactSectionTwoB2Body.value}</p>
               </div>
               <div className="textwrapper">
-                <h3 className="mb-4 font-semibold">{page.contactSectionTwoB3Title.value}</h3>
-                <p>{page.contactSectionTwoB3Body.value}</p>
+                <h3 className="mb-4 font-semibold text-primary">
+                  {page.contactSectionTwoB3Title.value}
+                </h3>
+                <p className="text-primary">{page.contactSectionTwoB3Body.value}</p>
               </div>
             </div>
           </div>
