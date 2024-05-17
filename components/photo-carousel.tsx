@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import InstagramImage from './instaimages';
-export async function PhotoCarousel(instagramArray: any) {
+
+export async function PhotoCarousel() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="carousel carousel-center w-full space-x-4  rounded-box p-4">
@@ -11,11 +11,6 @@ export async function PhotoCarousel(instagramArray: any) {
           allowTransparency={true}
           className="lightwidget-widget"
         ></iframe>
-        {instagramArray.instagramArray.map((item: any, index: number) => (
-          <div className="cover carousel-item" key={index}>
-            <InstagramImage item={item} />
-          </div>
-        ))}
       </div>
     </Suspense>
   );

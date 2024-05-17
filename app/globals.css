@@ -59,3 +59,8 @@ button {
     transform: scale(1) translateX(-50%);
   }
 }
+.lightwidget-widget {
+  width: 100%;
+  border: 0;
+  overflow: hidden;
+}

@@ -2,7 +2,7 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import { PhotoCarousel } from 'components/photo-carousel';
 import AboutSectionOne from 'components/sections/aboutsectionone';
 import CrazyText from 'components/sections/crazy-text';
-import getInstagramData from 'lib/instagram';
+
 import { getPage } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -40,7 +40,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
-  const instagramArray = await getInstagramData();
+
   const productAvailability = page.cookbookProduct?.reference.totalInventory > 0 ? true : false;
   const variantData = page.title === 'The Book' ? page.cookbookProduct?.reference.variants : null;
   const variants: any[] = variantData ? variantData.edges.map((edge: any) => edge.node) : [];
@@ -149,7 +149,7 @@ export default async function Page({ params }: { params: { page: string } }) {
       {page.title === 'About' ? (
         <div className="relative bg-accent40 pb-40">
           <h3 className="mb-6 text-center text-4xl font-bold uppercase text-primary">content</h3>
-          <PhotoCarousel instagramArray={instagramArray} />
+          <PhotoCarousel />
           <div className="button-container flex justify-center">
             <Link href="https://www.instagram.com/bignibblesfood/">
               <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
