@@ -370,7 +370,6 @@ export async function getHome() {
     }
     return acc;
   }, {});
-  console.log(fieldsObject);
   return fieldsObject;
 }
 

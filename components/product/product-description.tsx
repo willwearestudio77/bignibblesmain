@@ -19,10 +19,7 @@ export function ProductDescription({ product }: { product: Product }) {
       <VariantSelector options={product.options} variants={product.variants} />
 
       {product.descriptionHtml ? (
-        <Prose
-          className="mb-6 text-sm leading-tight dark:text-white/[60%]"
-          html={product.descriptionHtml}
-        />
+        <Prose className="mb-6 text-sm leading-tight text-primary" html={product.descriptionHtml} />
       ) : null}
 
       <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
