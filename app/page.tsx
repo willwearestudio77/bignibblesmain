@@ -253,13 +253,6 @@ export default async function HomePage() {
                 />
               </svg>
             </div>
-            <div className="button-container flex justify-center">
-              <Link href="https://www.instagram.com/bignibblesfood/">
-                <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
-                  follow me
-                </button>
-              </Link>
-            </div>
           </div>
           <Footer />
         </Suspense>

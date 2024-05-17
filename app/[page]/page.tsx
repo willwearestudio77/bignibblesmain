@@ -150,13 +150,7 @@ export default async function Page({ params }: { params: { page: string } }) {
         <div className="relative bg-accent40 pb-40">
           <h3 className="mb-6 text-center text-4xl font-bold uppercase text-primary">content</h3>
           <PhotoCarousel />
-          <div className="button-container flex justify-center">
-            <Link href="https://www.instagram.com/bignibblesfood/">
-              <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
-                follow me
-              </button>
-            </Link>
-          </div>
+
           <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
             <svg
               className="relative block h-[50px] w-full md:h-[116px]"
