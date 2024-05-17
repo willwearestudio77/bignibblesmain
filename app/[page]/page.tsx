@@ -13,7 +13,6 @@ import jakeChilli from 'public/jake-chilli-big-nibbles.png';
 import jakeWithASpoon from 'public/jake-horwood-spoon.png';
 import tongueEmoji from 'public/tounge-emoji.png';
 import wiseEmoji from 'public/wise-emoji.png';
-// const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.INSTAGRAMKEY}`;
 export const runtime = 'edge';
 
 export const revalidate = 43200; // 12 hours in seconds
