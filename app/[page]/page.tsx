@@ -524,6 +524,18 @@ export default async function Page({ params }: { params: { page: string } }) {
           </div>
         </div>
       ) : null}
+      {page.title === 'Shipping & Refund' ? (
+        <div
+          className="m-auto max-w-screen-sm p-8 pb-20 pt-20 text-white"
+          dangerouslySetInnerHTML={{ __html: page.body }}
+        />
+      ) : null}
+      {page.title === 'Privacy Policy' ? (
+        <div
+          className="m-auto max-w-screen-sm p-8 pb-20 pt-20 text-white"
+          dangerouslySetInnerHTML={{ __html: page.body }}
+        />
+      ) : null}
     </>
   );
 }
