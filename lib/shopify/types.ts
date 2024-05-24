@@ -269,7 +269,10 @@ export type ShopifyPagesOperation = {
 };
 
 export type ShopifyProductOperation = {
-  data: { product: ShopifyProduct };
+  data: {
+    products: any;
+    product: ShopifyProduct;
+  };
   variables: {
     handle: string;
   };

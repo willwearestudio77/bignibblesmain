@@ -20,6 +20,7 @@ import { getHomeQuery } from './queries/home';
 import { getMenuQuery } from './queries/menu';
 import { getPageQuery, getPagesQuery } from './queries/page';
 import {
+  getProductByTagQuery,
   getProductQuery,
   getProductRecommendationsQuery,
   getProductsQuery
@@ -400,6 +401,12 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
   });
 
   return reshapeProduct(res.body.data.product, false);
+}
+export async function getFeaturedProduct() {
+  const res = await shopifyFetch<ShopifyProductOperation>({
+    query: getProductByTagQuery
+  });
+  return res.body.data.products.edges[0].node;
 }
 
 export async function getProductRecommendations(productId: string): Promise<Product[]> {

@@ -30,3 +30,31 @@ export const getProductRecommendationsQuery = /* GraphQL */ `
   }
   ${productFragment}
 `;
+
+export const getProductByTagQuery = `
+{
+  products(query: "tag:featured", first: 1) {
+    edges {
+      node {
+        id
+        handle
+        images(first: 1) {
+          edges {
+            node {
+              url
+            }
+          }
+        }
+        variants(first: 10) {
+          edges {
+            node {
+              availableForSale
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

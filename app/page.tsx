@@ -1,10 +1,8 @@
-import { AddToCart } from 'components/cart/add-to-cart';
 import Footer from 'components/layout/footer';
 import { PhotoCarousel } from 'components/photo-carousel';
 import PartnerUp from 'components/sections/partner-up';
 import Stamps from 'components/stamps';
-
-import { getCollectionProducts, getHome } from 'lib/shopify';
+import { getHome } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import chilli from 'public/chilli.png';
@@ -24,13 +22,9 @@ export const metadata = {
 export default async function HomePage() {
   const data = await getHome();
 
-  const products = await getCollectionProducts({
-    collection: 'frontpage',
-    reverse: true,
-    sortKey: 'CREATED_AT'
-  });
-  const firstProduct = products[0];
-  const firstProductImage = firstProduct?.images[0];
+  // const productYes = await getProduct(handle);
+  // console.log(productYes);
+
   return (
     <>
       <Suspense>
@@ -154,6 +148,7 @@ export default async function HomePage() {
             <div className="m-auto flex max-w-screen-xl flex-col pt-12 md:flex-row md:pb-36">
               <div className="product homepage-product w-full p-4 md:w-1/2">
                 <div className="featured-product-conatiner relative m-auto max-w-sm rounded-lg  border-2 border-accent40 p-4 md:p-12 ">
+                  <h3 className="pt-20 text-2xl">Coming Soon!</h3>
                   <div className="rock absolute left-0 top-0 z-20">
                     <div className="relative">
                       <Image
@@ -174,7 +169,7 @@ export default async function HomePage() {
                       </svg>
                     </div>
                   </div>
-                  <Image
+                  {/* <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}
                     height={firstProductImage?.height ?? 0}
@@ -184,11 +179,15 @@ export default async function HomePage() {
                   <h5 className="pb-2 font-semibold">{firstProduct?.title ?? ''}</h5>
                   <p className="pb-4 font-semibold">
                     £{firstProduct?.priceRange.maxVariantPrice.amount}0
-                  </p>
-                  <AddToCart
+                  </p> */}
+                  {/* <AddToCart
                     variants={firstProduct?.variants ?? []}
                     availableForSale={firstProduct?.availableForSale ?? false}
-                  />
+                  /> */}
+                  {/* <AddToCart
+                    variants={productVariant ?? []}
+                    availableForSale={available ?? false}
+                  />  */}
                 </div>
               </div>
               <div className="product-desctiption flex w-full items-center p-8 md:w-1/2 md:p-20">
@@ -198,7 +197,7 @@ export default async function HomePage() {
                   </h2>
                   <p className="mb-4 text-primary">{data.product_text_description}</p>
                   <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
-                    <Link href={'/the-book'}>Read More</Link>
+                    <Link href={'/search'}>Go to the Shop</Link>
                   </button>
                 </div>
               </div>

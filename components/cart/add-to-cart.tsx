@@ -18,7 +18,6 @@ function SubmitButton({
   backgroundColor?: string;
 }) {
   const { pending } = useFormStatus();
-  console.log('color:', backgroundColor);
   const buttonClasses = `relative flex w-full items-center justify-center rounded-full ${
     backgroundColor === 'primary' ? 'bg-accent text-primary' : 'bg-primary text-accent'
   } p-4 tracking-wide uppercase font-semibold`;

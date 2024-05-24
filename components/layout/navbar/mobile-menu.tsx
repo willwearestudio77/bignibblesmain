@@ -100,14 +100,14 @@ export default function MobileMenu() {
                       Shop
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href={'/the-book'}
                       className="block font-bold text-primary underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
                     >
                       The Book
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </Dialog.Panel>
