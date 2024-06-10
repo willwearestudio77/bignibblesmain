@@ -1,3 +1,4 @@
+import GoogleAnalytics from 'components/Google/google-analytics';
 import Navbar from 'components/layout/navbar';
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
@@ -34,6 +35,7 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={GeistSans.variable}>
+      <GoogleAnalytics />
       <body className="bg-primary text-black selection:bg-teal-300   dark:selection:bg-pink-500 dark:selection:text-white">
         <Navbar />
         <Suspense>
