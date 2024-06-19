@@ -280,7 +280,8 @@ export default async function Page({ params }: { params: { page: string } }) {
             <h1 className="mb-10 text-center text-xl font-semibold text-primary">
               List of featured cities
             </h1>
-            <ul className=" grid grid-cols-2 gap-x-4 text-lg font-semibold text-primary md:grid-cols-4">
+            <p className="text-center">Coming soon</p>
+            {/* <ul className=" grid grid-cols-2 gap-x-4 text-lg font-semibold text-primary md:grid-cols-4">
               {(() => {
                 try {
                   const cities = JSON.parse(page.listOfCities.value);
@@ -300,7 +301,7 @@ export default async function Page({ params }: { params: { page: string } }) {
                   return null;
                 }
               })()}
-            </ul>
+            </ul> */}
             {/* <Link
               className="flex justify-center"
               href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}
