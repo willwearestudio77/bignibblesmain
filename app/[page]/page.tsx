@@ -1,8 +1,7 @@
-import { AddToCart } from 'components/cart/add-to-cart';
+// import { AddToCart } from 'components/cart/add-to-cart';
 import { PhotoCarousel } from 'components/photo-carousel';
 import AboutSectionOne from 'components/sections/aboutsectionone';
 import CrazyText from 'components/sections/crazy-text';
-
 import { getPage } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -13,6 +12,9 @@ import jakeChilli from 'public/jake-chilli-big-nibbles.png';
 import jakeWithASpoon from 'public/jake-horwood-spoon.png';
 import tongueEmoji from 'public/tounge-emoji.png';
 import wiseEmoji from 'public/wise-emoji.png';
+import backImage from '/public/hardcover-back.jpg';
+import frontImage from '/public/hardcover-front.jpg';
+import hardcover from '/public/hardcover-png.png';
 export const runtime = 'edge';
 
 export const revalidate = 43200; // 12 hours in seconds
@@ -40,10 +42,6 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
 
-  const productAvailability = page.cookbookProduct?.reference.totalInventory > 0 ? true : false;
-  const variantData = page.title === 'The Book' ? page.cookbookProduct?.reference.variants : null;
-  const variants: any[] = variantData ? variantData.edges.map((edge: any) => edge.node) : [];
-  const productImage = page.cookbookProduct?.reference.images?.edges[0].node.originalSrc;
   if (!page) return notFound();
   return (
     <>
@@ -169,13 +167,13 @@ export default async function Page({ params }: { params: { page: string } }) {
       {page.title === 'The Book' ? (
         <div className="relative bg-primary md:py-20">
           <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col justify-between gap-10 px-8 py-20 md:flex-row md:p-20 ">
-            <div className="image-section relative w-1/2 md:w-1/4">
+            <div className="image-section relative w-3/4 md:w-1/4">
               <Image
                 alt="product image"
-                src={productImage}
-                className="-rotate-12 rounded-lg object-contain"
-                width={800}
-                height={800}
+                src={hardcover}
+                className=" rounded-lg object-contain"
+                width={1000}
+                height={1000}
               />
             </div>
             <div className="textsection flex max-w-2xl flex-col gap-4 md:w-2/3  ">
@@ -186,11 +184,16 @@ export default async function Page({ params }: { params: { page: string } }) {
                 {page.cookbookTitleThree.value}
               </h1>
               <p className="text-white">{page.heroText.value}</p>
-              <AddToCart
+              {/* <AddToCart
                 backgroundColor="primary"
                 variants={variants ?? []}
                 availableForSale={productAvailability}
-              />
+              /> */}
+              <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
+                <button className="inline-block rounded-full	border-2 border-accent p-4 font-bold uppercase text-accent transition-colors hover:bg-primary hover:text-white">
+                  Go to the Shop
+                </button>
+              </Link>
             </div>
           </div>
           <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
@@ -232,7 +235,7 @@ export default async function Page({ params }: { params: { page: string } }) {
               <div className="image-container mb-10 w-1/2 md:w-1/2">
                 <Image
                   alt="product image"
-                  src={productImage}
+                  src={frontImage}
                   className="-rotate-12 rounded-lg object-contain"
                   width={800}
                   height={800}
@@ -272,8 +275,8 @@ export default async function Page({ params }: { params: { page: string } }) {
         </div>
       ) : null}
       {page.title === 'The Book' ? (
-        <div className="relative bg-accent80 pb-40">
-          <div className="content-wrapper m-auto max-w-[1000px] p-10">
+        <div className="relative  bg-accent80 pb-40">
+          <div className="content-wrapper m-auto flex max-w-[1000px] flex-col justify-center p-10">
             <h1 className="mb-10 text-center text-xl font-semibold text-primary">
               List of featured cities
             </h1>
@@ -298,6 +301,14 @@ export default async function Page({ params }: { params: { page: string } }) {
                 }
               })()}
             </ul>
+            <Link
+              className="flex justify-center"
+              href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}
+            >
+              <button className="rounded-full 	border-2 border-primary p-4 font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white">
+                Go to the Shop
+              </button>
+            </Link>
           </div>
           <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
             <svg
@@ -321,7 +332,7 @@ export default async function Page({ params }: { params: { page: string } }) {
             <div className="image-section relative flex w-1/2 px-8 md:w-1/4">
               <Image
                 alt="product image"
-                src={productImage}
+                src={backImage}
                 className="-rotate-12 rounded-lg object-contain"
                 width={800}
                 height={800}
@@ -335,11 +346,11 @@ export default async function Page({ params }: { params: { page: string } }) {
                 {page.cookbookTitleThree.value}
               </h1>
               <p className="text-white">{page.heroText.value}</p>
-              <AddToCart
+              {/* <AddToCart
                 backgroundColor="primary"
                 variants={variants ?? []}
                 availableForSale={productAvailability}
-              />
+              /> */}
             </div>
           </div>
         </div>

@@ -42,14 +42,14 @@ export default async function Navbar() {
                 Shop
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link
                 href={'/the-book'}
                 className="font-bold text-primary underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
               >
                 The Book
               </Link>
-            </li> */}
+            </li>
           </ul>
           {/* {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">

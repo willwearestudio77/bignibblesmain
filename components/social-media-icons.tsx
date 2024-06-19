@@ -4,7 +4,7 @@ function SocialMediaIcons() {
   return (
     <div>
       <div className="flex gap-8">
-        <Link href="https://www.facebook.com/">
+        <Link href="https://www.facebook.com/BigNibblesFood">
           <svg
             className="transition-all hover:scale-95"
             width="24"
@@ -26,7 +26,7 @@ function SocialMediaIcons() {
             </defs>
           </svg>
         </Link>
-        <Link href="https://www.instagram.com/">
+        <Link href="https://www.instagram.com/bignibblesfood">
           <svg
             className="transition-all hover:scale-95"
             width="24"
@@ -56,7 +56,7 @@ function SocialMediaIcons() {
             </defs>
           </svg>
         </Link>
-        <Link href="https://www.youtube.com/">
+        <Link href="https://www.youtube.com/@bignibbles">
           <svg
             className="transition-all hover:scale-95"
             width="24"

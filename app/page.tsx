@@ -8,6 +8,7 @@ import Link from 'next/link';
 import chilli from 'public/chilli.png';
 import dscard from 'public/ds.png';
 import hand from 'public/hand.png';
+import book from 'public/hardcover-png.png';
 import jakeyLimeEyes from 'public/jake-top.png';
 import rock from 'public/rock.png';
 import { Suspense } from 'react';
@@ -148,7 +149,6 @@ export default async function HomePage() {
             <div className="m-auto flex max-w-screen-xl flex-col pt-12 md:flex-row md:pb-36">
               <div className="product homepage-product w-full p-4 md:w-1/2">
                 <div className="featured-product-conatiner relative m-auto max-w-sm rounded-lg  border-2 border-accent40 p-4 md:p-12 ">
-                  <h3 className="pt-20 text-2xl">Coming Soon!</h3>
                   <div className="rock absolute left-0 top-0 z-20">
                     <div className="relative">
                       <Image
@@ -169,6 +169,20 @@ export default async function HomePage() {
                       </svg>
                     </div>
                   </div>
+                  <Image
+                    className="relative z-10 pb-4"
+                    width={1000}
+                    height={1000}
+                    alt="book"
+                    src={book}
+                  ></Image>
+                  <h5 className="pb-2 text-xl font-semibold">Get your copy today!</h5>
+                  <p className="pb-4 font-semibold">£10.00</p>
+                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
+                    <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
+                      Buy Now
+                    </Link>
+                  </button>
                   {/* <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}
@@ -197,7 +211,7 @@ export default async function HomePage() {
                   </h2>
                   <p className="mb-4 text-primary">{data.product_text_description}</p>
                   <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
-                    <Link href={'/search'}>Go to the Shop</Link>
+                    <Link href={'/the-book'}>Read More</Link>
                   </button>
                 </div>
               </div>
