@@ -189,11 +189,11 @@ export default async function Page({ params }: { params: { page: string } }) {
                 variants={variants ?? []}
                 availableForSale={productAvailability}
               /> */}
-              <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
+              {/* <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
                 <button className="inline-block rounded-full	border-2 border-accent p-4 font-bold uppercase text-accent transition-colors hover:bg-primary hover:text-white">
                   Go to the Shop
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
@@ -301,14 +301,14 @@ export default async function Page({ params }: { params: { page: string } }) {
                 }
               })()}
             </ul>
-            <Link
+            {/* <Link
               className="flex justify-center"
               href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}
             >
               <button className="rounded-full 	border-2 border-primary p-4 font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white">
                 Go to the Shop
               </button>
-            </Link>
+            </Link> */}
           </div>
           <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
             <svg

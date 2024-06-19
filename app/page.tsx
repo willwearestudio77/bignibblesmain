@@ -176,13 +176,13 @@ export default async function HomePage() {
                     alt="book"
                     src={book}
                   ></Image>
-                  <h5 className="pb-2 text-xl font-semibold">Get your copy today!</h5>
-                  <p className="pb-4 font-semibold">£10.00</p>
-                  <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
+
+                  <p className="pb-4 font-semibold">Coming Soon</p>
+                  {/* <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
                     <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
                       Buy Now
                     </Link>
-                  </button>
+                  </button> */}
                   {/* <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}
