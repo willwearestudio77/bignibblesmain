@@ -177,12 +177,19 @@ export default async function HomePage() {
                     src={book}
                   ></Image>
 
-                  <p className="pb-4 font-semibold">Coming Soon</p>
                   {/* <button className="rounded-full border-2 border-primary p-4 font-bold uppercase text-primary hover:bg-primary hover:text-accent">
                     <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
                       Buy Now
                     </Link>
                   </button> */}
+                  <Link
+                    className="mt-4 flex justify-center"
+                    href={'https://found.us/products/66630eb456b19853735012a7?code=bignibblesfood'}
+                  >
+                    <button className="rounded-full 	border-2 border-primary p-4 font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white">
+                      Get Your Book Now
+                    </button>
+                  </Link>
                   {/* <Image
                     className="relative z-10 pb-4"
                     width={firstProductImage?.width ?? 0}

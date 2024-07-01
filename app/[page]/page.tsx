@@ -189,11 +189,11 @@ export default async function Page({ params }: { params: { page: string } }) {
                 variants={variants ?? []}
                 availableForSale={productAvailability}
               /> */}
-              {/* <Link href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}>
+              <Link href={'https://found.us/products/66630eb456b19853735012a7?code=bignibblesfood'}>
                 <button className="inline-block rounded-full	border-2 border-accent p-4 font-bold uppercase text-accent transition-colors hover:bg-primary hover:text-white">
-                  Go to the Shop
+                  get your copy today
                 </button>
-              </Link> */}
+              </Link>
             </div>
           </div>
           <div className="wave absolute -bottom-1 left-0 z-10 w-full overflow-hidden ">
@@ -302,14 +302,14 @@ export default async function Page({ params }: { params: { page: string } }) {
                 }
               })()}
             </ul> */}
-            {/* <Link
-              className="flex justify-center"
-              href={'https://found.us/creators/bignibblesfood?code=bignibblesfood'}
+            <Link
+              className="mt-4 flex justify-center"
+              href={'https://found.us/products/66630eb456b19853735012a7?code=bignibblesfood'}
             >
               <button className="rounded-full 	border-2 border-primary p-4 font-bold uppercase text-primary transition-colors hover:bg-primary hover:text-white">
-                Go to the Shop
+                Get Your Book Now
               </button>
-            </Link> */}
+            </Link>
           </div>
           <div className="wave absolute -bottom-1 left-0 w-full  overflow-hidden">
             <svg
@@ -347,6 +347,11 @@ export default async function Page({ params }: { params: { page: string } }) {
                 {page.cookbookTitleThree.value}
               </h1>
               <p className="text-white">{page.heroText.value}</p>
+              <Link href={'https://found.us/products/66630eb456b19853735012a7?code=bignibblesfood'}>
+                <button className="inline-block rounded-full	border-2 border-accent p-4 font-bold uppercase text-accent transition-colors hover:bg-primary hover:text-white">
+                  get your copy today
+                </button>
+              </Link>
               {/* <AddToCart
                 backgroundColor="primary"
                 variants={variants ?? []}
