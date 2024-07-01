@@ -5,6 +5,7 @@ import Link from 'next/link';
 import logo from 'public/bn-logo.png';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
+import Search from './search';
 
 export default async function Navbar() {
   return (
@@ -66,9 +67,9 @@ export default async function Navbar() {
             </ul>
           ) : null} */}
         </div>
-        {/* <div className="hidden justify-center md:flex md:w-1/3">
+        <div className="ml-4 hidden justify-center  md:flex md:w-1/3">
           <Search />
-        </div> */}
+        </div>
         <div className="flex justify-end md:ml-6">
           <Suspense fallback={<OpenCart />}>
             <Cart />
