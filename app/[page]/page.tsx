@@ -264,12 +264,13 @@ export default async function Page({ params }: { params: { page: string } }) {
                 </h3>
                 <p className="text-primary">
                   But there&apos;s a twist - each sandwich comes with its own tongue-in-cheek roast
-                  of its town. Discover how the Aberdeen Deep Fried Mars Bar Sandwich encapsulates
-                  the city&apos;s knack for deep-frying anything that stands still long enough, or
-                  why the Liverpool Salt and Chilli Chip Sarnie adds a spicy kick to the classic
-                  chip butty, much like the city&apos;s own spirited and rowdy personality. Each
-                  sandwich story is a playful poke at its hometown, as rich and diverse as the
-                  sandwiches themselves!
+                  of its town. Discover how the{' '}
+                  <strong>Aberdeen Deep Fried Mars Bar Sandwich</strong> encapsulates the
+                  city&apos;s knack for deep-frying anything that stands still long enough, or why
+                  the <strong>Liverpool Salt and Chilli Chip Sarnie</strong> adds a spicy kick to
+                  the classic chip butty, much like the city&apos;s own spirited and rowdy
+                  personality. Each sandwich story is a playful poke at its hometown, as rich and
+                  diverse as the sandwiches themselves!
                   {/* {page.secondSectionBodyTwo.value} */}
                 </p>
               </div>
