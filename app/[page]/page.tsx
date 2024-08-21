@@ -11,10 +11,10 @@ import jakeBabyBigNibbles from 'public/jake-baby-big-nibbles.png';
 import jakeChilli from 'public/jake-chilli-big-nibbles.png';
 import jakeWithASpoon from 'public/jake-horwood-spoon.png';
 import tongueEmoji from 'public/tounge-emoji.png';
-import wiseEmoji from 'public/wise-emoji.png';
 import backImage from '/public/hardcover-back.jpg';
 import frontImage from '/public/hardcover-front.jpg';
 import hardcover from '/public/hardcover-png.png';
+import nerd from '/public/nerd.png';
 export const runtime = 'edge';
 
 export const revalidate = 43200; // 12 hours in seconds
@@ -217,7 +217,7 @@ export default async function Page({ params }: { params: { page: string } }) {
           <div className="content-wrapper relative m-auto flex max-w-[1400px] flex-col gap-20 px-8 md:flex-row md:p-20 ">
             <div className="textsection md:w-1/2">
               <h5 className="mb-2 font-sans text-xl font-semibold uppercase text-primary">
-                {page.secondSectionSubtileOne.value}
+                {/* {page.secondSectionSubtileOne.value} */}
               </h5>
               <h3 className="mb-2 font-sans text-4xl font-semibold uppercase text-primary">
                 {page.secondSectionTitleOne.value}{' '}
@@ -229,7 +229,13 @@ export default async function Page({ params }: { params: { page: string } }) {
                   height={800}
                 />
               </h3>
-              <p className="text-primary">{page.secondSectionBodyOne.value}</p>
+              <p className="text-primary">
+                {/* {page.secondSectionBodyOne.value} */}
+                In this outrageously delicious tome, Big Nibbles has taken it upon himself to assign
+                an “official” sandwich to every UK town and city. From the{' '}
+                <strong>Haggis Hero of Glasgow</strong> to the <strong>Wigan Kebab</strong>, these
+                creations are as much a feast for your sense of humor as they are for your stomach.
+              </p>
             </div>
             <div className="imagesection md:w-1/2">
               <div className="image-container mb-10 w-1/2 md:w-1/2">
@@ -246,16 +252,26 @@ export default async function Page({ params }: { params: { page: string } }) {
                   {page.secondSectionSubtileTwo.value}
                 </h5>
                 <h3 className="mb-2 font-sans text-4xl font-semibold uppercase text-primary">
-                  {page.secondSectionTitleTwo.value}{' '}
+                  {/* {page.secondSectionTitleTwo.value} */}
+                  IT&apos;S HILARIOUS TOO{' '}
                   <Image
                     alt="emoji of a wise face"
-                    className="inline-block w-12"
-                    src={wiseEmoji}
+                    className="inline-block w-8 -translate-y-1"
+                    src={nerd}
                     width={800}
                     height={800}
                   />
                 </h3>
-                <p className="text-primary">{page.secondSectionBodyTwo.value}</p>
+                <p className="text-primary">
+                  But there&apos;s a twist - each sandwich comes with its own tongue-in-cheek roast
+                  of its town. Discover how the Aberdeen Deep Fried Mars Bar Sandwich encapsulates
+                  the city&apos;s knack for deep-frying anything that stands still long enough, or
+                  why the Liverpool Salt and Chilli Chip Sarnie adds a spicy kick to the classic
+                  chip butty, much like the city&apos;s own spirited and rowdy personality. Each
+                  sandwich story is a playful poke at its hometown, as rich and diverse as the
+                  sandwiches themselves!
+                  {/* {page.secondSectionBodyTwo.value} */}
+                </p>
               </div>
             </div>
           </div>
