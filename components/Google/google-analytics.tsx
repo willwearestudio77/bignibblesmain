@@ -18,6 +18,12 @@ function GoogleAnalytics() {
               });
           `}
       </Script>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?
+client=ca-pub-6324335818551155"
+        crossOrigin="anonymous"
+      />
     </>
   );
 }
